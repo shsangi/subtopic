@@ -62,35 +62,18 @@ input{font-family:inherit;} a{color:inherit;}
   box-shadow:0 3px 8px -2px rgba(37,99,235,0.4); flex-shrink:0;
   cursor:pointer; transition:all 0.18s ease; position:relative;
 }
-.brand-mark::after{
-  content:''; position:absolute; inset:-3px; border-radius:10px;
-  border:2px solid transparent; transition:border-color 0.18s ease;
-}
+.brand-mark::after{content:''; position:absolute; inset:-3px; border-radius:10px; border:2px solid transparent; transition:border-color 0.18s ease;}
 .brand-mark:hover{ transform:translateY(-1px) scale(1.04); box-shadow:0 6px 14px -3px rgba(37,99,235,0.55); }
 .brand-mark:hover::after{ border-color:rgba(37,99,235,0.3); }
 .brand-mark:active{ transform:translateY(0) scale(0.98); }
 
 .brand-text{display:flex; flex-direction:column; min-width:0; line-height:1.15;}
-.brand-title{
-  font-size:14px; font-weight:700; letter-spacing:-0.01em;
-  color:var(--text); white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
-  display:flex; align-items:center; gap:6px;
-}
-.brand-title .job-pill{
-  font-size:11px; font-weight:600;
-  background:var(--accent-soft); color:var(--accent);
-  border:1px solid var(--accent-border);
-  padding:2px 8px; border-radius:20px; letter-spacing:0;
-}
+.brand-title{font-size:14px; font-weight:700; letter-spacing:-0.01em; color:var(--text); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; display:flex; align-items:center; gap:6px;}
+.brand-title .job-pill{font-size:11px; font-weight:600; background:var(--accent-soft); color:var(--accent); border:1px solid var(--accent-border); padding:2px 8px; border-radius:20px; letter-spacing:0;}
 .brand-sub{font-size:11px; color:var(--text-muted); font-weight:500;}
 .header-actions{display:flex; align-items:center; gap:8px; flex-shrink:0;}
 
-.btn{
-  display:inline-flex; align-items:center; gap:6px;
-  padding:7px 12px; border-radius:var(--radius-sm);
-  font-size:12.5px; font-weight:600; letter-spacing:-0.005em;
-  transition:all 0.15s ease; white-space:nowrap; user-select:none;
-}
+.btn{display:inline-flex; align-items:center; gap:6px; padding:7px 12px; border-radius:var(--radius-sm); font-size:12.5px; font-weight:600; letter-spacing:-0.005em; transition:all 0.15s ease; white-space:nowrap; user-select:none;}
 .btn i{font-size:11px;}
 .btn-ghost{color:var(--text-secondary); border:1px solid var(--border); background:var(--bg-elevated); box-shadow:var(--shadow-xs);}
 .btn-ghost:hover{background:var(--bg-subtle); border-color:var(--border-strong); color:var(--text); transform:translateY(-1px); box-shadow:var(--shadow-sm);}
@@ -106,31 +89,14 @@ input{font-family:inherit;} a{color:inherit;}
 }
 
 /* ============ STATS ============ */
-.stats-grid{
-  display:grid; grid-template-columns:repeat(4,1fr);
-  gap:10px; margin-bottom:14px; flex-shrink:0;
-}
-.stat-card{
-  background:var(--bg-elevated); border:1px solid var(--border);
-  border-radius:var(--radius-lg); padding:14px 16px;
-  box-shadow:var(--shadow-xs);
-  display:flex; align-items:center; gap:12px;
-  transition:all 0.18s ease; min-height:64px;
-  position:relative; overflow:hidden;
-}
-.stat-card::before{
-  content:''; position:absolute; left:0; top:0; bottom:0; width:3px;
-  background:var(--border-strong); transition:background 0.2s ease;
-}
+.stats-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin-bottom:14px; flex-shrink:0;}
+.stat-card{background:var(--bg-elevated); border:1px solid var(--border); border-radius:var(--radius-lg); padding:14px 16px; box-shadow:var(--shadow-xs); display:flex; align-items:center; gap:12px; transition:all 0.18s ease; min-height:64px; position:relative; overflow:hidden;}
+.stat-card::before{content:''; position:absolute; left:0; top:0; bottom:0; width:3px; background:var(--border-strong); transition:background 0.2s ease;}
 .stat-card.is-success::before{ background:var(--success); }
 .stat-card.is-warn::before{ background:var(--warn); }
 .stat-card.is-accent::before{ background:var(--accent); }
 .stat-card:hover{ border-color:var(--border-strong); box-shadow:var(--shadow-md); transform:translateY(-1px); }
-.stat-icon{
-  width:38px; height:38px; border-radius:10px;
-  display:grid; place-items:center; flex-shrink:0;
-  font-size:15px; background:var(--bg-inset); color:var(--text-secondary);
-}
+.stat-icon{width:38px; height:38px; border-radius:10px; display:grid; place-items:center; flex-shrink:0; font-size:15px; background:var(--bg-inset); color:var(--text-secondary);}
 .stat-card.is-success .stat-icon{ background:var(--success-soft); color:var(--success); }
 .stat-card.is-warn .stat-icon{ background:var(--warn-soft); color:var(--warn); }
 .stat-card.is-accent .stat-icon{ background:var(--accent-soft); color:var(--accent); }
@@ -144,12 +110,7 @@ input{font-family:inherit;} a{color:inherit;}
 /* ============ SEARCH ============ */
 .search-bar{position:relative; margin-bottom:10px; flex-shrink:0;}
 .search-bar i.search-icon{position:absolute; left:14px; top:50%; transform:translateY(-50%); color:var(--text-muted); font-size:13px; pointer-events:none;}
-.search-bar input{
-  width:100%; padding:10px 40px 10px 38px;
-  border:1px solid var(--border); border-radius:var(--radius);
-  background:var(--bg-elevated); font-size:13.5px; font-weight:450;
-  color:var(--text); outline:none; transition:all 0.15s ease; box-shadow:var(--shadow-xs);
-}
+.search-bar input{width:100%; padding:10px 40px 10px 38px; border:1px solid var(--border); border-radius:var(--radius); background:var(--bg-elevated); font-size:13.5px; font-weight:450; color:var(--text); outline:none; transition:all 0.15s ease; box-shadow:var(--shadow-xs);}
 .search-bar input::placeholder{color:var(--text-faint); font-weight:400;}
 .search-bar input:focus{border-color:var(--accent); box-shadow:var(--ring),var(--shadow-sm);}
 .search-clear{position:absolute; right:10px; top:50%; transform:translateY(-50%); width:22px; height:22px; border-radius:50%; display:none; align-items:center; justify-content:center; color:var(--text-muted); font-size:12px; transition:all 0.12s ease;}
@@ -157,41 +118,14 @@ input{font-family:inherit;} a{color:inherit;}
 .search-clear.visible{display:flex;}
 
 /* ============ FILTER PANEL ============ */
-.filter-panel{
-  background:var(--bg-elevated); border:1px solid var(--border);
-  border-radius:var(--radius-lg); padding:12px 14px;
-  margin-bottom:12px; box-shadow:var(--shadow-xs);
-  display:flex; flex-direction:column; gap:10px; flex-shrink:0;
-}
+.filter-panel{background:var(--bg-elevated); border:1px solid var(--border); border-radius:var(--radius-lg); padding:12px 14px; margin-bottom:12px; box-shadow:var(--shadow-xs); display:flex; flex-direction:column; gap:10px; flex-shrink:0;}
 .filter-row{display:grid; grid-template-columns:repeat(3,1fr); gap:10px;}
-
-/* ★★★ BLACK LABELS ★★★ */
-.filter-label{
-  display:flex; align-items:center; justify-content:space-between;
-  font-size:11.5px; font-weight:700;
-  letter-spacing:0.04em;
-  text-transform:uppercase;
-  color:var(--text);           /* ← black (was muted gray) */
-  margin-bottom:5px;
-}
-.filter-label .count-pill{
-  font-size:10px; font-weight:700;
-  background:var(--bg-inset); color:var(--text);
-  padding:1px 7px; border-radius:20px;
-  letter-spacing:0; text-transform:none;
-  font-family:var(--font-mono);
-}
-.filter-label i{ color:var(--text); }  /* keep icon matching */
+.filter-label{display:flex; align-items:center; justify-content:space-between; font-size:11.5px; font-weight:700; letter-spacing:0.04em; text-transform:uppercase; color:var(--text); margin-bottom:5px;}
+.filter-label .count-pill{font-size:10px; font-weight:700; background:var(--bg-inset); color:var(--text); padding:1px 7px; border-radius:20px; letter-spacing:0; text-transform:none; font-family:var(--font-mono);}
+.filter-label i{ color:var(--text); }
 
 .ms{position:relative;}
-.ms-trigger{
-  width:100%; padding:7px 10px;
-  border:1px solid var(--border); border-radius:var(--radius);
-  background:var(--bg-elevated); font-size:13px; font-weight:600;
-  color:var(--text); display:flex; align-items:center; justify-content:space-between;
-  gap:8px; min-height:34px; transition:all 0.15s ease;
-  box-shadow:var(--shadow-xs); user-select:none;
-}
+.ms-trigger{width:100%; padding:7px 10px; border:1px solid var(--border); border-radius:var(--radius); background:var(--bg-elevated); font-size:13px; font-weight:600; color:var(--text); display:flex; align-items:center; justify-content:space-between; gap:8px; min-height:34px; transition:all 0.15s ease; box-shadow:var(--shadow-xs); user-select:none;}
 .ms-trigger:hover{border-color:var(--border-strong); background:var(--bg-subtle);}
 .ms-trigger.open{border-color:var(--accent); box-shadow:var(--ring);}
 .ms-trigger .ph{color:var(--text-faint); font-weight:500;}
@@ -199,94 +133,44 @@ input{font-family:inherit;} a{color:inherit;}
 .ms-trigger i.chev{font-size:10px; color:var(--text-muted); transition:transform 0.2s ease;}
 .ms-trigger.open i.chev{transform:rotate(180deg);}
 
-.ms-drop{
-  position:absolute; top:calc(100% + 6px); left:0; right:0;
-  background:var(--bg-elevated); border:1px solid var(--border);
-  border-radius:var(--radius); box-shadow:var(--shadow-lg);
-  max-height:280px; overflow-y:auto; z-index:200;
-  display:none; padding:6px;
-}
+.ms-drop{position:absolute; top:calc(100% + 6px); left:0; right:0; background:var(--bg-elevated); border:1px solid var(--border); border-radius:var(--radius); box-shadow:var(--shadow-lg); max-height:300px; overflow-y:auto; z-index:200; display:none; padding:6px;}
 .ms-drop.open{display:block;}
-.ms-search{
-  width:100%; padding:7px 10px;
-  border:1px solid var(--border); border-radius:var(--radius-sm);
-  font-size:12.5px; font-weight:500; color:var(--text);
-  outline:none; background:var(--bg-inset); transition:all 0.15s ease;
-  margin-bottom:4px;
-}
+.ms-search{width:100%; padding:7px 10px; border:1px solid var(--border); border-radius:var(--radius-sm); font-size:12.5px; font-weight:500; color:var(--text); outline:none; background:var(--bg-inset); transition:all 0.15s ease; margin-bottom:4px;}
 .ms-search:focus{border-color:var(--accent); background:white; box-shadow:var(--ring);}
 .ms-search::placeholder{color:var(--text-faint); font-weight:400;}
 
-/* --- FIXED: Options don't close dropdown on click --- */
-.ms-opt{
-  display:flex; align-items:center; gap:8px;
-  padding:7px 8px; border-radius:var(--radius-sm);
-  font-size:12.5px; font-weight:500; color:var(--text);
-  cursor:pointer; transition:background 0.12s ease; word-break:break-word;
-  user-select:none;
-}
+.ms-opt{display:flex; align-items:center; gap:8px; padding:7px 8px; border-radius:var(--radius-sm); font-size:12.5px; font-weight:500; color:var(--text); cursor:pointer; transition:background 0.12s ease; word-break:break-word; user-select:none;}
 .ms-opt:hover{background:var(--bg-subtle);}
 .ms-opt.selected{background:var(--accent-soft); color:var(--accent);}
 .ms-opt.selected .check{background:var(--accent); border-color:var(--accent);}
 .ms-opt.selected .check i{opacity:1;}
-.ms-opt .check{
-  width:15px; height:15px; border-radius:4px;
-  border:1.5px solid var(--border-strong); background:white;
-  display:flex; align-items:center; justify-content:center;
-  flex-shrink:0; transition:all 0.12s ease;
-}
+.ms-opt .check{width:15px; height:15px; border-radius:4px; border:1.5px solid var(--border-strong); background:white; display:flex; align-items:center; justify-content:center; flex-shrink:0; transition:all 0.12s ease;}
 .ms-opt .check i{font-size:8px; color:white; opacity:0; transition:opacity 0.12s ease;}
 
-.ms-actions{
-  display:flex; gap:6px; padding:6px 4px 2px;
-  border-top:1px solid var(--border-subtle); margin-top:4px;
-}
-.ms-actions button{
-  flex:1; padding:6px; border-radius:var(--radius-sm);
-  border:1px solid var(--border); background:var(--bg-elevated);
-  font-size:11.5px; font-weight:600; color:var(--text-secondary);
-  transition:all 0.12s ease;
-}
+.ms-actions{display:flex; gap:6px; padding:6px 4px 2px; border-top:1px solid var(--border-subtle); margin-top:4px;}
+.ms-actions button{flex:1; padding:6px; border-radius:var(--radius-sm); border:1px solid var(--border); background:var(--bg-elevated); font-size:11.5px; font-weight:600; color:var(--text-secondary); transition:all 0.12s ease;}
 .ms-actions button:hover{background:var(--bg-subtle); border-color:var(--border-strong); color:var(--text);}
 
 .filter-foot{display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap; padding-top:10px; border-top:1px solid var(--border-subtle);}
 .segmented{display:inline-flex; background:var(--bg-inset); border:1px solid var(--border); border-radius:var(--radius); padding:3px; gap:2px;}
-.seg-btn{
-  display:inline-flex; align-items:center; gap:5px;
-  padding:5px 12px; border-radius:7px;
-  font-size:12px; font-weight:600; color:var(--text-secondary);
-  transition:all 0.15s ease; user-select:none;
-}
+.seg-btn{display:inline-flex; align-items:center; gap:5px; padding:5px 12px; border-radius:7px; font-size:12px; font-weight:600; color:var(--text-secondary); transition:all 0.15s ease; user-select:none;}
 .seg-btn i{font-size:10px;}
 .seg-btn:hover{color:var(--text);}
 .seg-btn.active{background:var(--bg-elevated); color:var(--text); box-shadow:var(--shadow-xs);}
 .seg-btn.active[data-status="covered"]{color:var(--success);}
 .seg-btn.active[data-status="pending"]{color:var(--warn);}
-.btn-reset{
-  display:inline-flex; align-items:center; gap:6px;
-  padding:6px 12px; border-radius:var(--radius);
-  border:1px solid var(--border); background:var(--bg-elevated);
-  font-size:12px; font-weight:600; color:var(--text-secondary);
-  transition:all 0.15s ease;
-}
+.btn-reset{display:inline-flex; align-items:center; gap:6px; padding:6px 12px; border-radius:var(--radius); border:1px solid var(--border); background:var(--bg-elevated); font-size:12px; font-weight:600; color:var(--text-secondary); transition:all 0.15s ease;}
 .btn-reset:hover{border-color:var(--danger-border); color:var(--danger); background:var(--danger-soft);}
 .btn-reset i{font-size:10px; transition:transform 0.4s ease;}
 .btn-reset:hover i{transform:rotate(-180deg);}
 
 /* ============ RESULTS META ============ */
-.results-meta{display:flex; align-items:center; justify-content:space-between; padding:0 2px 10px; font-size:12px; color:var(--text-muted); font-weight:500; flex-shrink:0;}
+.results-meta{display:flex; align-items:center; justify-content:space-between; padding:0 2px 10px; font-size:12px; color:var(--text-muted); font-weight:500; flex-shrink:0; gap:8px; flex-wrap:wrap;}
 .results-meta .count-strong{color:var(--text); font-weight:700;}
 
 /* ============ CARDS ============ */
 .cards{display:grid; grid-template-columns:repeat(auto-fill,minmax(340px,1fr)); gap:12px;}
-.card{
-  background:var(--bg-elevated); border:1px solid var(--border);
-  border-radius:var(--radius-lg); padding:14px 16px 12px;
-  box-shadow:var(--shadow-xs);
-  transition:all 0.18s cubic-bezier(0.4,0,0.2,1);
-  display:flex; flex-direction:column; gap:10px;
-  position:relative; overflow:hidden; min-width:0;
-}
+.card{background:var(--bg-elevated); border:1px solid var(--border); border-radius:var(--radius-lg); padding:14px 16px 12px; box-shadow:var(--shadow-xs); transition:all 0.18s cubic-bezier(0.4,0,0.2,1); display:flex; flex-direction:column; gap:10px; position:relative; overflow:hidden; min-width:0;}
 .card::before{content:''; position:absolute; left:0; top:0; bottom:0; width:3px; background:var(--border-strong); transition:background 0.2s ease;}
 .card.is-covered::before{background:var(--success);}
 .card.is-pending::before{background:var(--warn);}
@@ -336,6 +220,53 @@ input{font-family:inherit;} a{color:inherit;}
 .action-sol{background:var(--bg-elevated); color:var(--text-secondary); border-color:var(--border); max-width:130px;}
 .action-sol:hover{border-color:var(--border-strong); color:var(--text); background:var(--bg-subtle);}
 .action-sol .label{overflow:hidden; text-overflow:ellipsis; max-width:88px;}
+
+/* ============ LOAD MORE ============ */
+.load-more-wrap{
+  grid-column:1/-1;
+  display:flex; flex-direction:column; align-items:center; gap:10px;
+  padding:24px 16px 8px;
+}
+.load-more-btn{
+  display:inline-flex; align-items:center; gap:8px;
+  padding:11px 22px; border-radius:var(--radius);
+  background:var(--text); color:white;
+  font-size:13.5px; font-weight:600;
+  border:1px solid var(--text);
+  transition:all 0.18s ease;
+  box-shadow:var(--shadow-md);
+  letter-spacing:-0.005em;
+}
+.load-more-btn:hover{
+  background:#1e293b; transform:translateY(-2px);
+  box-shadow:var(--shadow-lg);
+}
+.load-more-btn:active{ transform:translateY(0); }
+.load-more-btn i{ font-size:12px; transition:transform 0.3s ease; }
+.load-more-btn:hover i{ transform:translateY(3px); }
+.load-more-btn .lm-count{
+  font-family:var(--font-mono);
+  font-size:11px; font-weight:700;
+  background:rgba(255,255,255,0.18);
+  padding:2px 8px; border-radius:20px;
+  letter-spacing:-0.02em;
+}
+.load-more-info{
+  font-size:12px; font-weight:500;
+  color:var(--text-muted);
+  text-align:center;
+}
+.load-more-info strong{ color:var(--text); font-weight:700; }
+.load-more-progress{
+  width:100%; max-width:280px; height:5px;
+  background:var(--bg-inset); border-radius:3px; overflow:hidden;
+  margin-top:2px;
+}
+.load-more-progress-fill{
+  height:100%; border-radius:3px;
+  background:linear-gradient(90deg,#60a5fa,#2563eb);
+  transition:width 0.4s ease;
+}
 
 /* ============ STATES / SKELETON ============ */
 .state{grid-column:1/-1; padding:56px 24px; text-align:center; background:var(--bg-elevated); border:1px dashed var(--border-strong); border-radius:var(--radius-lg); color:var(--text-secondary); font-size:13px;}
@@ -404,183 +335,162 @@ input{font-family:inherit;} a{color:inherit;}
 .modal-foot{padding:12px 20px; border-top:1px solid var(--border); background:var(--bg-subtle); display:flex; justify-content:flex-end; gap:8px; flex-wrap:wrap;}
 
 /* ============================================================
-   QUICK VIEW — ACCORDION
+   QUICK VIEW — HIERARCHY (Job → Subject → Topic → Subtopic)
 ============================================================ */
-.qv-modal{max-width:820px;}
-.qv-toolbar{
-  display:flex; align-items:center; justify-content:space-between;
-  gap:8px; padding:10px 20px;
-  background:linear-gradient(180deg,var(--bg-elevated),var(--bg-subtle));
-  border-bottom:1px solid var(--border);
-  flex-wrap:wrap;
-}
-.qv-toolbar-info{
-  font-size:12px; font-weight:500; color:var(--text-muted);
-  display:flex; align-items:center; gap:6px;
-}
+.qv-modal{max-width:880px;}
+.qv-toolbar{display:flex; align-items:center; justify-content:space-between; gap:8px; padding:10px 20px; background:linear-gradient(180deg,var(--bg-elevated),var(--bg-subtle)); border-bottom:1px solid var(--border); flex-wrap:wrap;}
+.qv-toolbar-info{font-size:12px; font-weight:500; color:var(--text-muted); display:flex; align-items:center; gap:6px;}
 .qv-toolbar-info i{ color:var(--text-faint); font-size:11px; }
 .qv-toolbar-actions{ display:flex; gap:6px; flex-shrink:0; }
-.qv-tool-btn{
-  display:inline-flex; align-items:center; gap:5px;
-  padding:6px 11px; border-radius:var(--radius-sm);
-  border:1px solid var(--border); background:var(--bg-elevated);
-  font-size:11.5px; font-weight:600; color:var(--text-secondary);
-  transition:all 0.15s ease; white-space:nowrap;
-}
-.qv-tool-btn:hover{
-  background:var(--accent-soft); color:var(--accent);
-  border-color:var(--accent-border);
-}
+.qv-tool-btn{display:inline-flex; align-items:center; gap:5px; padding:6px 11px; border-radius:var(--radius-sm); border:1px solid var(--border); background:var(--bg-elevated); font-size:11.5px; font-weight:600; color:var(--text-secondary); transition:all 0.15s ease; white-space:nowrap;}
+.qv-tool-btn:hover{background:var(--accent-soft); color:var(--accent); border-color:var(--accent-border);}
 .qv-tool-btn i{ font-size:10px; }
 
-.qv-body{
-  padding:12px 16px 16px; overflow-y:auto; flex:1;
-  background:var(--bg-elevated);
-  display:flex; flex-direction:column; gap:8px;
+.qv-body{padding:12px 16px 16px; overflow-y:auto; flex:1; background:var(--bg-elevated); display:flex; flex-direction:column; gap:8px;}
+
+/* Root section (Job level) */
+.qv-section{border:1px solid var(--border); border-radius:var(--radius); background:var(--bg-elevated); overflow:hidden; transition:border-color 0.15s ease, box-shadow 0.15s ease;}
+.qv-section.open{border-color:var(--border-strong); box-shadow:var(--shadow-xs);}
+.qv-section-head{display:flex; align-items:center; justify-content:space-between; gap:12px; padding:12px 14px; cursor:pointer; user-select:none; transition:background 0.12s ease; background:var(--bg-elevated); width:100%; border:none; text-align:left; font-family:inherit;}
+.qv-section-head:hover{ background:var(--bg-subtle); }
+.qv-section.open .qv-section-head{border-bottom:1px solid var(--border-subtle); background:var(--bg-subtle);}
+.qv-section-left{display:flex; align-items:center; gap:10px; min-width:0; flex:1;}
+.qv-section-chev{width:20px; height:20px; border-radius:6px; display:grid; place-items:center; color:var(--text-muted); font-size:10px; transition:transform 0.22s ease, color 0.15s ease, background 0.15s ease; flex-shrink:0;}
+.qv-section.open .qv-section-chev{transform:rotate(90deg); color:var(--accent); background:var(--accent-soft);}
+.qv-section-icon{width:28px; height:28px; border-radius:8px; display:grid; place-items:center; font-size:12px; flex-shrink:0; background:var(--bg-inset); color:var(--text-secondary);}
+.qv-section[data-kind="job"] .qv-section-icon{ background:var(--accent-soft); color:var(--accent); }
+.qv-section-title{display:flex; flex-direction:column; min-width:0; gap:1px;}
+.qv-section-title .t-main{font-size:13.5px; font-weight:700; color:var(--text); letter-spacing:-0.005em;}
+.qv-section-title .t-sub{font-size:11px; font-weight:500; color:var(--text-muted);}
+.qv-section-right{display:flex; align-items:center; gap:6px; flex-shrink:0;}
+.qv-section-badge{font-family:var(--font-mono); font-size:11px; font-weight:700; background:var(--bg-inset); color:var(--text); padding:3px 9px; border-radius:20px; letter-spacing:-0.02em; transition:all 0.15s ease;}
+.qv-section.open .qv-section-badge{background:var(--accent-soft); color:var(--accent);}
+
+.qv-section-body{max-height:0; overflow:hidden; transition:max-height 0.32s cubic-bezier(0.4,0,0.2,1); background:var(--bg-subtle);}
+.qv-section.open .qv-section-body{max-height:6000px;}
+
+/* Nested levels inside a job */
+.qv-nested{
+  padding:8px 12px 12px;
+  display:flex; flex-direction:column; gap:6px;
 }
 
-/* Accordion section */
-.qv-section{
-  border:1px solid var(--border); border-radius:var(--radius);
+/* Sub-accordion (Subject within Job) */
+.qv-sub{
   background:var(--bg-elevated);
+  border:1px solid var(--border);
+  border-radius:8px;
   overflow:hidden;
-  transition:border-color 0.15s ease, box-shadow 0.15s ease;
+  transition:border-color 0.15s ease;
 }
-.qv-section.open{
-  border-color:var(--border-strong);
-  box-shadow:var(--shadow-xs);
-}
-.qv-section-head{
+.qv-sub.open{ border-color:var(--border-strong); box-shadow:var(--shadow-xs); }
+.qv-sub-head{
   display:flex; align-items:center; justify-content:space-between;
-  gap:12px; padding:12px 14px;
+  gap:10px; padding:9px 12px;
   cursor:pointer; user-select:none;
   transition:background 0.12s ease;
-  background:var(--bg-elevated);
-  width:100%; border:none; text-align:left; font-family:inherit;
+  width:100%; border:none; background:transparent; text-align:left;
+  font-family:inherit;
 }
-.qv-section-head:hover{ background:var(--bg-subtle); }
-.qv-section.open .qv-section-head{
-  border-bottom:1px solid var(--border-subtle);
-  background:var(--bg-subtle);
-}
-.qv-section-left{
-  display:flex; align-items:center; gap:10px;
-  min-width:0; flex:1;
-}
-.qv-section-chev{
-  width:20px; height:20px; border-radius:6px;
+.qv-sub-head:hover{ background:var(--bg-subtle); }
+.qv-sub.open .qv-sub-head{ background:var(--bg-subtle); border-bottom:1px solid var(--border-subtle); }
+.qv-sub-left{ display:flex; align-items:center; gap:9px; min-width:0; flex:1; }
+.qv-sub-chev{
+  width:16px; height:16px; border-radius:5px;
   display:grid; place-items:center;
-  color:var(--text-muted);
-  font-size:10px;
+  color:var(--text-muted); font-size:9px;
   transition:transform 0.22s ease, color 0.15s ease, background 0.15s ease;
   flex-shrink:0;
 }
-.qv-section.open .qv-section-chev{
-  transform:rotate(90deg);
-  color:var(--accent);
-  background:var(--accent-soft);
-}
-.qv-section-icon{
-  width:28px; height:28px; border-radius:8px;
-  display:grid; place-items:center;
-  font-size:12px; flex-shrink:0;
-  background:var(--bg-inset); color:var(--text-secondary);
-}
-.qv-section[data-kind="job"] .qv-section-icon{ background:var(--accent-soft); color:var(--accent); }
-.qv-section[data-kind="subject"] .qv-section-icon{ background:#f5f3ff; color:#7c3aed; }
-.qv-section[data-kind="topic"] .qv-section-icon{ background:var(--success-soft); color:var(--success); }
-.qv-section[data-kind="subtopic"] .qv-section-icon{ background:var(--warn-soft); color:var(--warn); }
-
-.qv-section-title{
-  display:flex; flex-direction:column; min-width:0; gap:1px;
-}
-.qv-section-title .t-main{
-  font-size:13.5px; font-weight:700; color:var(--text);
-  letter-spacing:-0.005em;
-}
-.qv-section-title .t-sub{
-  font-size:11px; font-weight:500; color:var(--text-muted);
-}
-.qv-section-right{
-  display:flex; align-items:center; gap:6px;
+.qv-sub.open .qv-sub-chev{ transform:rotate(90deg); color:#7c3aed; background:#f5f3ff; }
+.qv-sub-icon{
+  width:22px; height:22px; border-radius:6px;
+  display:grid; place-items:center; font-size:10px;
+  background:#f5f3ff; color:#7c3aed;
   flex-shrink:0;
 }
-.qv-section-badge{
-  font-family:var(--font-mono);
-  font-size:11px; font-weight:700;
-  background:var(--bg-inset); color:var(--text);
-  padding:3px 9px; border-radius:20px;
-  letter-spacing:-0.02em;
-  transition:all 0.15s ease;
-}
-.qv-section.open .qv-section-badge{
-  background:var(--accent-soft); color:var(--accent);
-}
+.qv-sub-name{ font-size:12.5px; font-weight:600; color:var(--text); letter-spacing:-0.005em; word-break:break-word; min-width:0; }
+.qv-sub-badge{ font-family:var(--font-mono); font-size:10px; font-weight:700; background:var(--bg-inset); color:var(--text-secondary); padding:2px 7px; border-radius:20px; flex-shrink:0; letter-spacing:-0.02em; }
+.qv-sub.open .qv-sub-badge{ background:#f5f3ff; color:#7c3aed; }
 
-/* Section content */
-.qv-section-body{
+/* Topic within Subject */
+.qv-sub-body{
   max-height:0; overflow:hidden;
-  transition:max-height 0.28s cubic-bezier(0.4,0,0.2,1);
+  transition:max-height 0.3s cubic-bezier(0.4,0,0.2,1);
   background:var(--bg-elevated);
 }
-.qv-section.open .qv-section-body{
-  max-height:2800px;
-}
-.qv-section-list{
-  padding:10px 12px 12px;
-  display:flex; flex-direction:column; gap:4px;
-}
+.qv-sub.open .qv-sub-body{ max-height:4000px; }
+.qv-sub-list{ padding:6px 10px 10px; display:flex; flex-direction:column; gap:4px; }
 
-/* Item rows inside sections */
-.qv-row{
-  display:flex; align-items:center; justify-content:space-between;
-  gap:10px; padding:9px 12px;
+.qv-topic{
+  background:var(--bg-subtle);
   border:1px solid transparent;
-  border-radius:8px;
+  border-radius:6px;
+  overflow:hidden;
+  transition:border-color 0.15s ease;
+}
+.qv-topic.open{ border-color:var(--success-border); background:var(--success-soft); }
+.qv-topic-head{
+  display:flex; align-items:center; justify-content:space-between;
+  gap:8px; padding:7px 10px;
+  cursor:pointer; width:100%; border:none; background:transparent;
+  text-align:left; font-family:inherit;
+  transition:background 0.12s ease;
+}
+.qv-topic-head:hover{ background:rgba(13,148,136,0.08); }
+.qv-topic.open .qv-topic-head{ border-bottom:1px solid var(--success-border); }
+.qv-topic-left{ display:flex; align-items:center; gap:8px; min-width:0; flex:1; }
+.qv-topic-chev{
+  width:14px; height:14px; border-radius:4px;
+  display:grid; place-items:center;
+  color:var(--text-muted); font-size:8px;
+  transition:transform 0.22s ease, color 0.15s ease;
+  flex-shrink:0;
+}
+.qv-topic.open .qv-topic-chev{ transform:rotate(90deg); color:var(--success); }
+.qv-topic-icon{
+  width:18px; height:18px; border-radius:5px;
+  display:grid; place-items:center; font-size:9px;
+  background:var(--success-soft); color:var(--success);
+  flex-shrink:0;
+}
+.qv-topic.open .qv-topic-icon{ background:white; }
+.qv-topic-name{ font-size:12px; font-weight:600; color:var(--text); word-break:break-word; min-width:0; }
+.qv-topic-badge{ font-family:var(--font-mono); font-size:9.5px; font-weight:700; background:white; color:var(--text-secondary); padding:2px 6px; border-radius:20px; border:1px solid var(--border); flex-shrink:0; letter-spacing:-0.02em; }
+
+/* Subtopic rows inside Topic */
+.qv-topic-body{
+  max-height:0; overflow:hidden;
+  transition:max-height 0.28s cubic-bezier(0.4,0,0.2,1);
+  background:white;
+}
+.qv-topic.open .qv-topic-body{ max-height:2000px; }
+.qv-topic-list{ padding:5px 8px 8px; display:flex; flex-direction:column; gap:3px; }
+
+.qv-leaf{
+  display:flex; align-items:center; justify-content:space-between;
+  gap:8px; padding:7px 10px;
+  border-radius:6px;
   background:var(--bg-subtle);
   cursor:pointer;
   transition:all 0.13s ease;
-  font-family:inherit; font-size:13px;
-  text-align:left; width:100%;
-  color:var(--text);
+  font-family:inherit; font-size:12px;
+  text-align:left; width:100%; color:var(--text);
+  border:1px solid transparent;
 }
-.qv-row:hover{
-  background:var(--accent-soft);
-  border-color:var(--accent-border);
+.qv-leaf:hover{
+  background:var(--warn-soft);
+  border-color:var(--warn-border);
+  color:var(--warn);
   transform:translateX(2px);
-  color:var(--accent);
 }
-.qv-row:hover .qv-row-count{
-  background:white; color:var(--accent);
-}
-.qv-row-left{
-  display:flex; align-items:center; gap:8px;
-  min-width:0; flex:1;
-}
-.qv-row-left i{
-  font-size:11px; color:var(--text-faint); flex-shrink:0;
-  width:12px; text-align:center;
-}
-.qv-row:hover .qv-row-left i{ color:var(--accent); }
-.qv-row-name{
-  font-weight:600; word-break:break-word; min-width:0;
-  letter-spacing:-0.005em;
-}
-.qv-row-count{
-  font-family:var(--font-mono);
-  font-size:10.5px; font-weight:700;
-  background:white; color:var(--text-secondary);
-  padding:2px 8px; border-radius:20px;
-  border:1px solid var(--border);
-  flex-shrink:0; letter-spacing:-0.02em;
-  transition:all 0.13s ease;
-}
-.qv-row-meta{
-  font-size:10.5px; font-weight:500; color:var(--text-faint);
-  margin-left:auto; margin-right:6px;
-  white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
-  max-width:160px;
-}
+.qv-leaf-left{ display:flex; align-items:center; gap:7px; min-width:0; flex:1; }
+.qv-leaf-left i{ font-size:10px; color:var(--text-faint); flex-shrink:0; }
+.qv-leaf:hover .qv-leaf-left i{ color:var(--warn); }
+.qv-leaf-name{ font-weight:500; word-break:break-word; min-width:0; }
+.qv-leaf-count{ font-family:var(--font-mono); font-size:9.5px; font-weight:700; background:white; color:var(--text-secondary); padding:1px 6px; border-radius:20px; border:1px solid var(--border); flex-shrink:0; letter-spacing:-0.02em; }
+
+/* Direct leaf list at job level (unassigned subtopics) */
 .qv-empty{
   padding:36px 20px; text-align:center;
   color:var(--text-muted); font-size:13px;
@@ -630,14 +540,15 @@ input{font-family:inherit;} a{color:inherit;}
   .modal-foot{padding:10px 16px;}
   .btn span.hide-sm{display:none;}
   .qv-toolbar{padding:8px 12px;}
-  .qv-toolbar-info{font-size:11px;}
   .qv-body{padding:10px 12px 12px;}
   .qv-section-head{padding:10px 12px;}
   .qv-section-title .t-main{font-size:13px;}
-  .qv-section-title .t-sub{font-size:10.5px;}
-  .qv-section-list{padding:8px 10px 10px;}
-  .qv-row{padding:8px 10px; font-size:12.5px;}
-  .qv-row-meta{ max-width:100px; font-size:10px; }
+  .qv-sub-head{padding:8px 10px;}
+  .qv-sub-name{font-size:12px;}
+  .qv-topic-head{padding:6px 9px;}
+  .qv-topic-name{font-size:11.5px;}
+  .qv-leaf{padding:6px 9px; font-size:11.5px;}
+  .load-more-btn{ padding:10px 18px; font-size:13px; }
 }
 @media (max-width:400px){
   .brand-sub{display:none;}
@@ -656,7 +567,7 @@ input{font-family:inherit;} a{color:inherit;}
 <header class="app-header">
   <div class="app-header-inner">
     <div class="brand">
-      <button class="brand-mark" id="brandMarkBtn" title="Quick view — categories & counts" aria-label="Open quick view">
+      <button class="brand-mark" id="brandMarkBtn" title="Quick view — category hierarchy" aria-label="Open quick view">
         <i class="fas fa-layer-group"></i>
       </button>
       <div class="brand-text">
@@ -816,16 +727,16 @@ input{font-family:inherit;} a{color:inherit;}
   </div>
 </div>
 
-<!-- QUICK VIEW MODAL (Accordion) -->
+<!-- QUICK VIEW MODAL — HIERARCHY -->
 <div class="overlay" id="qvOverlay">
   <div class="modal qv-modal" role="dialog" aria-modal="true">
     <div class="modal-head">
       <div class="modal-head-text">
         <div class="modal-title">
           <i class="fas fa-compass"></i>
-          <span>Quick View</span>
+          <span>Quick View — Category Hierarchy</span>
         </div>
-        <div class="modal-sub" id="qvSubtitle">Browse all categories</div>
+        <div class="modal-sub" id="qvSubtitle">Job → Subject → Topic → Subtopic</div>
       </div>
       <button class="modal-close" id="qvCloseBtn" title="Close">
         <i class="fas fa-times"></i>
@@ -834,8 +745,8 @@ input{font-family:inherit;} a{color:inherit;}
 
     <div class="qv-toolbar">
       <div class="qv-toolbar-info">
-        <i class="fas fa-hand-pointer"></i>
-        Click any item to filter the dashboard
+        <i class="fas fa-sitemap"></i>
+        Drill down the hierarchy — click any leaf to filter
       </div>
       <div class="qv-toolbar-actions">
         <button class="qv-tool-btn" id="qvExpandAll">
@@ -864,6 +775,8 @@ const SHEET_ID = '1D_wCGy3Rks9MXt84qpC4Ea2Qjo3uSgm0b-JBIh2_mmc';
 const GID = '0';
 const CSV_URL = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/export?format=csv&gid=${GID}`;
 const EXPECTED_COLUMNS = 9;
+
+const PAGE_SIZE = 100;
 
 const LS_DATA_KEY='tracker_data_v2', LS_FILTERS_KEY='tracker_filters_v2',
       LS_SCROLL_KEY='tracker_scroll_v2', LS_TS_KEY='tracker_ts_v2';
@@ -897,8 +810,13 @@ let toastTimer=null;
 let rebuildSubjectSelect=null, rebuildTopicSelect=null, rebuildJobSelect=null;
 let filterRefreshScheduled=false, isLoading=false;
 
-/* Quick view accordion state (persists during session) */
-let qvOpenSections = { job:true, subject:false, topic:false, subtopic:false };
+/* Pagination */
+let visibleCount = PAGE_SIZE;
+
+/* Quick view hierarchy open state */
+let qvOpenJobs = new Set();
+let qvOpenSubjects = new Set();
+let qvOpenTopics = new Set();
 
 /* ================= PERSIST ================= */
 function saveFiltersToStorage(){
@@ -1074,44 +992,29 @@ function updateBrandTitle(){
   else brandTitle.textContent='Topic Tracker';
 }
 
-/* ================= FILTER OPTIONS ================= */
-function getAvailableOptions(exclude){
-  const aS=exclude==='subject'?new Set():selectedSubjects;
-  const aT=exclude==='topic'?new Set():selectedTopics;
-  const aJ=exclude==='job'?new Set():selectedJobs;
+/* ============================================================
+   FILTER OPTIONS — OPTIONS NEVER DISAPPEAR
+   (Full dataset always used to populate dropdowns)
+============================================================ */
+function getAllFilterOptions(){
   const S=new Set(),T=new Set(),J=new Set();
   rawData.forEach(item=>{
-    if(selectedStatuses.size>0&&!selectedStatuses.has(item.status)) return;
-    if(!matchesGlobalSearch(item,globalSearchTerm)) return;
-    if(aS.size>0&&!aS.has(item.subject)) return;
-    if(aT.size>0&&!aT.has(item.displayTopic)) return;
-    if(aJ.size>0&&!aJ.has(item.job)) return;
-    if(exclude==='subject'){
-      if(selectedSubjects.size>0&&!selectedSubjects.has(item.subject)) return;
-      if(item.subject&&item.subject!=='—') S.add(item.subject);
-    } else if(exclude==='topic'){
-      if(selectedTopics.size>0&&!selectedTopics.has(item.displayTopic)) return;
-      if(item.displayTopic&&item.displayTopic!=='—') T.add(item.displayTopic);
-    } else if(exclude==='job'){
-      if(selectedJobs.size>0&&!selectedJobs.has(item.job)) return;
-      if(item.job&&item.job!=='—') J.add(item.job);
-    } else {
-      if(item.subject&&item.subject!=='—') S.add(item.subject);
-      if(item.displayTopic&&item.displayTopic!=='—') T.add(item.displayTopic);
-      if(item.job&&item.job!=='—') J.add(item.job);
-    }
+    if(item.subject&&item.subject!=='—') S.add(item.subject);
+    if(item.displayTopic&&item.displayTopic!=='—') T.add(item.displayTopic);
+    if(item.job&&item.job!=='—') J.add(item.job);
   });
-  return { subjects:Array.from(S).sort(), topics:Array.from(T).sort(), jobs:Array.from(J).sort() };
+  return {
+    subjects: Array.from(S).sort(),
+    topics: Array.from(T).sort(),
+    jobs: Array.from(J).sort()
+  };
 }
-function pruneSelections(){
-  const a=getAvailableOptions('none');
-  Array.from(selectedSubjects).forEach(s=>{ if(!a.subjects.includes(s)) selectedSubjects.delete(s); });
-  Array.from(selectedTopics).forEach(t=>{ if(!a.topics.includes(t)) selectedTopics.delete(t); });
-  Array.from(selectedJobs).forEach(j=>{ if(!a.jobs.includes(j)) selectedJobs.delete(j); });
-}
+/* Deprecated alias used by older callers */
+function getAvailableOptions(){ return getAllFilterOptions(); }
+function pruneSelections(){ /* no-op: keep selections even if no longer in results */ }
 
 /* ============================================================
-   MULTI-SELECT — STAYS OPEN ON SELECTION
+   MULTI-SELECT — STAYS OPEN
 ============================================================ */
 function buildMultiSelect(container,options,selectedSet,onUpdate,enableSearch){
   const drop=container.querySelector('.ms-drop'), trig=container.querySelector('.ms-trigger'), ph=container.querySelector('.ph');
@@ -1134,9 +1037,7 @@ function buildMultiSelect(container,options,selectedSet,onUpdate,enableSearch){
         }
       }
     });
-    /* Close when clicking outside */
     document.addEventListener('click',(e)=>{ if(!container.contains(e.target)) close(); });
-    /* Close on Escape key */
     document.addEventListener('keydown',(e)=>{
       if(e.key==='Escape' && drop.classList.contains('open')) close();
     });
@@ -1183,18 +1084,13 @@ function buildMultiSelect(container,options,selectedSet,onUpdate,enableSearch){
         const d=document.createElement('div');
         d.className='ms-opt'+(selectedSet.has(o.value)?' selected':'');
         d.innerHTML=`<span class="check"><i class="fas fa-check"></i></span><span>${escapeHtml(o.label)}</span>`;
-
-        /* ★★★ FIXED: Don't close on click, just toggle + re-render in place ★★★ */
         d.addEventListener('click',(e)=>{
           e.stopPropagation();
           if(selectedSet.has(o.value)) selectedSet.delete(o.value);
           else selectedSet.add(o.value);
           onUpdate();
           updateText();
-          /* Toggle in place without closing */
           d.classList.toggle('selected');
-          /* Keep search input focused */
-          if(si && document.activeElement !== si){ /* no-op */ }
         });
         drop.appendChild(d);
       });
@@ -1233,12 +1129,13 @@ function toggleStatus(s,el){
   } else { selectedStatuses.add(s); el.classList.add('active'); }
   scheduleFastFilterRefresh();
 }
+
+/* ★★★ Always use full dataset options (never disappears) ★★★ */
 function refreshAllFilters(){
-  pruneSelections();
-  const aS=getAvailableOptions('subject'), aT=getAvailableOptions('topic'), aJ=getAvailableOptions('job');
-  const sO=aS.subjects.map(s=>({value:s,label:s}));
-  const tO=aT.topics.map(t=>({value:t,label:t}));
-  const jO=aJ.jobs.map(j=>({value:j,label:j}));
+  const all = getAllFilterOptions();
+  const sO=all.subjects.map(s=>({value:s,label:s}));
+  const tO=all.topics.map(t=>({value:t,label:t}));
+  const jO=all.jobs.map(j=>({value:j,label:j}));
   subjectCountHint.textContent=sO.length;
   topicCountHint.textContent=tO.length;
   jobCountHint.textContent=jO.length;
@@ -1257,16 +1154,19 @@ function applyFiltersAndRender(){
     if(!matchesGlobalSearch(item,globalSearchTerm)) return false;
     return true;
   });
+  /* Reset pagination when filter changes */
+  visibleCount = PAGE_SIZE;
   updateStats(filteredData);
   updateBrandTitle();
   updateResultsMeta();
-  renderCards(filteredData);
+  renderCards(filteredData, true);
 }
 function updateResultsMeta(){
   if(!rawData.length){ resultsMeta.style.display='none'; return; }
   resultsMeta.style.display='flex';
-  resultCount.textContent=filteredData.length;
-  resultLabel.textContent=filteredData.length===1?'topic':'topics';
+  const shown = Math.min(visibleCount, filteredData.length);
+  resultCount.textContent = shown;
+  resultLabel.textContent = `of ${filteredData.length} topic${filteredData.length===1?'':'s'}`;
   const sp=[];
   if(selectedJobs.size===1) sp.push(Array.from(selectedJobs)[0]);
   else if(selectedJobs.size>1) sp.push(`${selectedJobs.size} jobs`);
@@ -1418,166 +1318,236 @@ modalCopyBtn.addEventListener('click',()=>{
 });
 
 /* ============================================================
-   QUICK VIEW — ACCORDION
+   QUICK VIEW — HIERARCHY: Job → Subject → Topic → Subtopic
 ============================================================ */
-function computeQvData(){
-  const jobsMap=new Map(), subjectsMap=new Map(),
-        topicsMap=new Map(), subtopicsMap=new Map();
+function buildHierarchy(){
+  /* tree[job][subject][topic] = [subtopics...] */
+  const tree = { __unassigned__: {} };
+  const jobsOrder = [];
+  const subjectsInJob = {};
 
   rawData.forEach(item=>{
-    if(item.job&&item.job!=='—'){
-      if(!jobsMap.has(item.job)) jobsMap.set(item.job,{count:0,subjects:new Set(),topics:new Set()});
-      const j=jobsMap.get(item.job);
-      j.count++;
-      if(item.subject&&item.subject!=='—') j.subjects.add(item.subject);
-      if(item.mainTopic&&item.mainTopic!=='—') j.topics.add(item.mainTopic);
-    }
-    if(item.subject&&item.subject!=='—'){
-      if(!subjectsMap.has(item.subject)) subjectsMap.set(item.subject,{count:0,jobs:new Set(),topics:new Set()});
-      const s=subjectsMap.get(item.subject);
-      s.count++;
-      if(item.job&&item.job!=='—') s.jobs.add(item.job);
-      if(item.mainTopic&&item.mainTopic!=='—') s.topics.add(item.mainTopic);
-    }
-    if(item.mainTopic&&item.mainTopic!=='—'){
-      if(!topicsMap.has(item.mainTopic)) topicsMap.set(item.mainTopic,{count:0,subjects:new Set(),subtopics:new Set()});
-      const t=topicsMap.get(item.mainTopic);
-      t.count++;
-      if(item.subject&&item.subject!=='—') t.subjects.add(item.subject);
-      if(item.subTopic&&item.subTopic!=='—') t.subtopics.add(item.subTopic);
-    }
-    if(item.subTopic&&item.subTopic!=='—'){
-      if(!subtopicsMap.has(item.subTopic)) subtopicsMap.set(item.subTopic,{count:0,topics:new Set(),subjects:new Set()});
-      const st=subtopicsMap.get(item.subTopic);
-      st.count++;
-      if(item.mainTopic&&item.mainTopic!=='—') st.topics.add(item.mainTopic);
-      if(item.subject&&item.subject!=='—') st.subjects.add(item.subject);
-    }
+    const jobKey = (item.job && item.job!=='—') ? item.job : '__unassigned__';
+    const subjKey = (item.subject && item.subject!=='—') ? item.subject : '__other__';
+    const topicKey = (item.mainTopic && item.mainTopic!=='—') ? item.mainTopic : '__other__';
+    const subKey = (item.subTopic && item.subTopic!=='—') ? item.subTopic : '__other__';
+
+    if(!tree[jobKey]) tree[jobKey] = {};
+    if(!tree[jobKey][subjKey]) tree[jobKey][subjKey] = {};
+    if(!tree[jobKey][subjKey][topicKey]) tree[jobKey][subjKey][topicKey] = [];
+    tree[jobKey][subjKey][topicKey].push({ sub: subKey, count: 1 });
+
+    if(jobKey !== '__unassigned__' && !jobsOrder.includes(jobKey)) jobsOrder.push(jobKey);
+    if(!subjectsInJob[jobKey]) subjectsInJob[jobKey] = new Set();
+    if(subjKey !== '__other__') subjectsInJob[jobKey].add(subjKey);
   });
 
-  const toArr=(map,kind)=>Array.from(map.entries()).map(([name,val])=>({
-    name, kind, count:val.count,
-    subjects:val.subjects?Array.from(val.subjects):[],
-    topics:val.topics?Array.from(val.topics):[],
-    jobs:val.jobs?Array.from(val.jobs):[],
-    subtopics:val.subtopics?Array.from(val.subtopics):[]
-  })).sort((a,b)=>b.count-a.count||a.name.localeCompare(b.name));
+  /* Aggregate counts */
+  const jobs = Object.keys(tree).map(jobKey=>{
+    const subjectsMap = tree[jobKey];
+    const subjectList = Object.keys(subjectsMap).map(subjKey=>{
+      const topicsMap = subjectsMap[subjKey];
+      const topicList = Object.keys(topicsMap).map(topicKey=>{
+        const subsMap = {};
+        topicsMap[topicKey].forEach(x=>{
+          subsMap[x.sub] = (subsMap[x.sub]||0) + 1;
+        });
+        const subtopicList = Object.keys(subsMap).map(s=>({ name:s, count:subsMap[s] }));
+        subtopicList.sort((a,b)=> a.name.localeCompare(b.name));
+        const totalSubtopics = subtopicList.reduce((sum,x)=>sum+x.count,0);
+        return { name:topicKey, subtopics:subtopicList, count:totalSubtopics };
+      });
+      topicList.sort((a,b)=> a.name.localeCompare(b.name));
+      const totalTopics = topicList.reduce((sum,x)=>sum+x.count,0);
+      return { name:subjKey, topics:topicList, count:totalTopics };
+    });
+    subjectList.sort((a,b)=> a.name.localeCompare(b.name));
+    const totalSubjects = subjectList.length;
+    const totalSubs = subjectList.reduce((sum,s)=>sum+s.count,0);
+    return {
+      name: jobKey === '__unassigned__' ? 'Unassigned Job' : jobKey,
+      rawName: jobKey,
+      subjects: subjectList,
+      subjectCount: totalSubjects,
+      count: totalSubs
+    };
+  });
 
-  return {
-    jobs:toArr(jobsMap,'job'),
-    subjects:toArr(subjectsMap,'subject'),
-    topics:toArr(topicsMap,'topic'),
-    subtopics:toArr(subtopicsMap,'subtopic')
-  };
+  jobs.sort((a,b)=>{
+    if(a.rawName==='__unassigned__') return 1;
+    if(b.rawName==='__unassigned__') return -1;
+    return b.count - a.count || a.name.localeCompare(b.name);
+  });
+
+  return jobs;
 }
 
-function buildQvRow(name, count, kind, metaText, onClick){
+function buildQvLeaf(name, count, filterKind, filterValue){
   const row=document.createElement('button');
   row.type='button';
-  row.className='qv-row';
-  const iconKind = kind==='job'?'fa-briefcase':
-                   kind==='subject'?'fa-book':
-                   kind==='topic'?'fa-folder':'fa-list-ul';
+  row.className='qv-leaf';
   row.innerHTML=`
-    <span class="qv-row-left">
-      <i class="fas ${iconKind}"></i>
-      <span class="qv-row-name">${escapeHtml(name)}</span>
+    <span class="qv-leaf-left">
+      <i class="fas fa-list-ul"></i>
+      <span class="qv-leaf-name">${escapeHtml(name)}</span>
     </span>
-    <span class="qv-row-meta">${escapeHtml(metaText||'')}</span>
-    <span class="qv-row-count">${count}</span>
+    <span class="qv-leaf-count">${count}</span>
   `;
-  row.addEventListener('click', onClick);
+  row.addEventListener('click',()=>{
+    if(filterKind==='job'){ selectedJobs.clear(); selectedJobs.add(filterValue); }
+    else if(filterKind==='subject'){ selectedSubjects.clear(); selectedSubjects.add(filterValue); }
+    else if(filterKind==='topic'){ selectedTopics.clear(); selectedTopics.add(filterValue); }
+    else if(filterKind==='subtopic'){ selectedTopics.clear(); selectedTopics.add(filterValue); }
+    refreshAllFilters(); applyFiltersAndRender(); saveFiltersToStorage();
+    closeQuickView();
+    showToast(`Filtered by ${filterKind}: ${filterValue}`);
+  });
   return row;
 }
 
-function renderQv(){
-  const data = computeQvData();
-  qvBody.innerHTML='';
+function buildTopicNode(topic){
+  const wrap=document.createElement('div');
+  wrap.className='qv-topic';
+  wrap.dataset.topicKey=topic.name;
 
-  const sections=[
-    {
-      key:'job', title:'Jobs', sub:'Unique job posts', icon:'fa-briefcase',
-      items:data.jobs,
-      metaBuilder:(it)=>`${it.subjects.length} subject${it.subjects.length===1?'':'s'}`
-    },
-    {
-      key:'subject', title:'Subjects', sub:'Unique subjects', icon:'fa-book',
-      items:data.subjects,
-      metaBuilder:(it)=>`${it.topics.length} topic${it.topics.length===1?'':'s'}`
-    },
-    {
-      key:'topic', title:'Topics', sub:'Main topics', icon:'fa-folder',
-      items:data.topics,
-      metaBuilder:(it)=>`${it.subtopics.length} subtopic${it.subtopics.length===1?'':'s'}`
-    },
-    {
-      key:'subtopic', title:'Subtopics', sub:'All subtopics', icon:'fa-list-ul',
-      items:data.subtopics,
-      metaBuilder:(it)=>`${it.topics.length} parent topic${it.topics.length===1?'':'s'}`
-    }
-  ];
+  const head=document.createElement('button');
+  head.type='button';
+  head.className='qv-topic-head';
+  head.innerHTML=`
+    <span class="qv-topic-left">
+      <span class="qv-topic-chev"><i class="fas fa-chevron-right"></i></span>
+      <span class="qv-topic-icon"><i class="fas fa-folder"></i></span>
+      <span class="qv-topic-name">${escapeHtml(topic.name)}</span>
+    </span>
+    <span class="qv-topic-badge">${topic.subtopics.length}</span>
+  `;
+  head.addEventListener('click',()=>{
+    const opening = !wrap.classList.contains('open');
+    wrap.classList.toggle('open');
+    if(opening) qvOpenTopics.add(topic.name);
+    else qvOpenTopics.delete(topic.name);
+  });
+  wrap.appendChild(head);
 
-  sections.forEach(sec=>{
-    const wrap=document.createElement('div');
-    wrap.className='qv-section'+(qvOpenSections[sec.key]?' open':'');
-    wrap.dataset.kind=sec.key;
-    wrap.dataset.section=sec.key;
+  const body=document.createElement('div');
+  body.className='qv-topic-body';
+  const list=document.createElement('div');
+  list.className='qv-topic-list';
+  topic.subtopics.forEach(st=>{
+    const leaf = buildQvLeaf(st.name, st.count, 'subtopic', st.name);
+    list.appendChild(leaf);
+  });
+  body.appendChild(list);
+  wrap.appendChild(body);
+  return wrap;
+}
 
-    /* Head */
-    const head=document.createElement('button');
-    head.type='button';
-    head.className='qv-section-head';
-    head.innerHTML=`
-      <span class="qv-section-left">
-        <span class="qv-section-chev"><i class="fas fa-chevron-right"></i></span>
-        <span class="qv-section-icon"><i class="fas ${sec.icon}"></i></span>
-        <span class="qv-section-title">
-          <span class="t-main">${sec.title}</span>
-          <span class="t-sub">${sec.sub}</span>
-        </span>
+function buildSubjectNode(subject, jobKey){
+  const wrap=document.createElement('div');
+  wrap.className='qv-sub';
+  wrap.dataset.subKey=subject.name;
+
+  const head=document.createElement('button');
+  head.type='button';
+  head.className='qv-sub-head';
+  head.innerHTML=`
+    <span class="qv-sub-left">
+      <span class="qv-sub-chev"><i class="fas fa-chevron-right"></i></span>
+      <span class="qv-sub-icon"><i class="fas fa-book"></i></span>
+      <span class="qv-sub-name">${escapeHtml(subject.name)}</span>
+    </span>
+    <span class="qv-sub-badge">${subject.topics.length}</span>
+  `;
+  head.addEventListener('click',()=>{
+    const opening = !wrap.classList.contains('open');
+    wrap.classList.toggle('open');
+    if(opening) qvOpenSubjects.add(jobKey+'||'+subject.name);
+    else qvOpenSubjects.delete(jobKey+'||'+subject.name);
+  });
+  wrap.appendChild(head);
+
+  const body=document.createElement('div');
+  body.className='qv-sub-body';
+  const list=document.createElement('div');
+  list.className='qv-sub-list';
+  subject.topics.forEach(topic=>{
+    const topicNode = buildTopicNode(topic);
+    if(qvOpenTopics.has(topic.name)) topicNode.classList.add('open');
+    list.appendChild(topicNode);
+  });
+  body.appendChild(list);
+  wrap.appendChild(body);
+  return wrap;
+}
+
+function buildJobSection(job){
+  const wrap=document.createElement('div');
+  wrap.className='qv-section';
+  wrap.dataset.kind='job';
+  wrap.dataset.jobKey=job.rawName;
+
+  if(qvOpenJobs.has(job.rawName)) wrap.classList.add('open');
+
+  const head=document.createElement('button');
+  head.type='button';
+  head.className='qv-section-head';
+  head.innerHTML=`
+    <span class="qv-section-left">
+      <span class="qv-section-chev"><i class="fas fa-chevron-right"></i></span>
+      <span class="qv-section-icon"><i class="fas fa-briefcase"></i></span>
+      <span class="qv-section-title">
+        <span class="t-main">${escapeHtml(job.name)}</span>
+        <span class="t-sub">${job.subjectCount} subject${job.subjectCount===1?'':'s'}</span>
       </span>
-      <span class="qv-section-right">
-        <span class="qv-section-badge">${sec.items.length}</span>
-      </span>
-    `;
-    head.addEventListener('click',()=>{
-      const isOpen = wrap.classList.toggle('open');
-      qvOpenSections[sec.key] = isOpen;
+    </span>
+    <span class="qv-section-right">
+      <span class="qv-section-badge">${job.count}</span>
+    </span>
+  `;
+  head.addEventListener('click',()=>{
+    const opening = !wrap.classList.contains('open');
+    wrap.classList.toggle('open');
+    if(opening) qvOpenJobs.add(job.rawName);
+    else qvOpenJobs.delete(job.rawName);
+  });
+  wrap.appendChild(head);
+
+  const body=document.createElement('div');
+  body.className='qv-section-body';
+  const nested=document.createElement('div');
+  nested.className='qv-nested';
+
+  if(!job.subjects.length){
+    const empty=document.createElement('div');
+    empty.className='qv-empty';
+    empty.innerHTML=`<i class="fas fa-inbox"></i>No subjects under this job`;
+    nested.appendChild(empty);
+  } else {
+    job.subjects.forEach(subject=>{
+      const subNode = buildSubjectNode(subject, job.rawName);
+      if(qvOpenSubjects.has(job.rawName+'||'+subject.name)) subNode.classList.add('open');
+      nested.appendChild(subNode);
     });
-    wrap.appendChild(head);
+  }
+  body.appendChild(nested);
+  wrap.appendChild(body);
+  return wrap;
+}
 
-    /* Body */
-    const body=document.createElement('div');
-    body.className='qv-section-body';
-    const list=document.createElement('div');
-    list.className='qv-section-list';
+function renderQv(){
+  qvBody.innerHTML='';
+  const jobs = buildHierarchy();
 
-    if(!sec.items.length){
-      const empty=document.createElement('div');
-      empty.className='qv-empty';
-      empty.innerHTML=`<i class="fas fa-inbox"></i>No ${sec.key}s found`;
-      list.appendChild(empty);
-    } else {
-      sec.items.forEach(it=>{
-        const row = buildQvRow(it.name, it.count, it.kind, sec.metaBuilder(it), ()=>{
-          if(it.kind==='job'){ selectedJobs.clear(); selectedJobs.add(it.name); }
-          else if(it.kind==='subject'){ selectedSubjects.clear(); selectedSubjects.add(it.name); }
-          else if(it.kind==='topic'){ selectedTopics.clear(); selectedTopics.add(it.name); }
-          else if(it.kind==='subtopic'){ selectedTopics.clear(); selectedTopics.add(it.name); }
-          refreshAllFilters(); applyFiltersAndRender(); saveFiltersToStorage();
-          closeQuickView();
-          showToast(`Filtered by ${it.kind}: ${it.name}`);
-        });
-        list.appendChild(row);
-      });
-    }
-    body.appendChild(list);
-    wrap.appendChild(body);
-    qvBody.appendChild(wrap);
+  if(!jobs.length){
+    qvBody.innerHTML = `<div class="qv-empty"><i class="fas fa-inbox"></i>No data available</div>`;
+    return;
+  }
+
+  jobs.forEach(job=>{
+    qvBody.appendChild(buildJobSection(job));
   });
 
-  const totalItems = data.jobs.length + data.subjects.length + data.topics.length + data.subtopics.length;
-  qvSubtitle.textContent = `${totalItems} items across 4 categories`;
+  qvSubtitle.textContent = `${jobs.length} job${jobs.length===1?'':'s'} · ${jobs.reduce((s,j)=>s+j.subjectCount,0)} subject links`;
 }
 
 function openQuickView(){
@@ -1594,17 +1564,26 @@ brandMarkBtn.addEventListener('click', openQuickView);
 qvCloseBtn.addEventListener('click', closeQuickView);
 qvOverlay.addEventListener('click',(e)=>{ if(e.target===qvOverlay) closeQuickView(); });
 
-/* Expand all / Collapse all */
 qvExpandAll.addEventListener('click',()=>{
-  qvOpenSections = { job:true, subject:true, topic:true, subtopic:true };
-  qvBody.querySelectorAll('.qv-section').forEach(s=>s.classList.add('open'));
+  const jobs = buildHierarchy();
+  jobs.forEach(j=>{
+    qvOpenJobs.add(j.rawName);
+    j.subjects.forEach(s=>{
+      qvOpenSubjects.add(j.rawName+'||'+s.name);
+      s.topics.forEach(t=>{
+        qvOpenTopics.add(t.name);
+      });
+    });
+  });
+  renderQv();
 });
 qvCollapseAll.addEventListener('click',()=>{
-  qvOpenSections = { job:false, subject:false, topic:false, subtopic:false };
-  qvBody.querySelectorAll('.qv-section').forEach(s=>s.classList.remove('open'));
+  qvOpenJobs.clear();
+  qvOpenSubjects.clear();
+  qvOpenTopics.clear();
+  renderQv();
 });
 
-/* Escape closes any open modal */
 document.addEventListener('keydown',(e)=>{
   if(e.key!=='Escape') return;
   if(modalOverlay.classList.contains('open')) closeNotesModal();
@@ -1612,173 +1591,231 @@ document.addEventListener('keydown',(e)=>{
 });
 
 /* ============================================================
-   CARD RENDER
+   CARD RENDER — with pagination
 ============================================================ */
-function renderCards(data){
-  if(!data.length){
-    cardsContainer.innerHTML=`
-      <div class="state">
-        <i class="fas fa-magnifying-glass big"></i>
-        <div class="state-title">No matching topics</div>
-        <div class="state-sub">Try adjusting filters or search query</div>
-      </div>`;
-    return;
+function renderCards(data, reset){
+  if(reset){
+    cardsContainer.innerHTML='';
+    if(!data.length){
+      cardsContainer.innerHTML=`
+        <div class="state">
+          <i class="fas fa-magnifying-glass big"></i>
+          <div class="state-title">No matching topics</div>
+          <div class="state-sub">Try adjusting filters or search query</div>
+        </div>`;
+      return;
+    }
   }
+
+  const slice = data.slice(0, visibleCount);
   const frag=document.createDocumentFragment();
-  data.forEach(item=>{
-    const card=document.createElement('div');
-    card.className=`card ${item.status==='covered'?'is-covered':'is-pending'}`;
-    if(item.status==='pending'){
-      card.title='Click to copy DeepSeek prompt';
-      card.addEventListener('click',(e)=>{
-        if(e.target.closest('a,button')) return;
-        copyPrompt(item);
-      });
-    }
 
-    const head=document.createElement('div');
-    head.className='card-head';
-    const headLeft=document.createElement('div');
-    headLeft.className='card-head-left';
-    const srno=document.createElement('span');
-    srno.className='card-srno';
-    srno.textContent=`#${item.srno}`;
-    headLeft.appendChild(srno);
-    const title=document.createElement('a');
-    title.className='card-title';
-    title.href=`https://www.google.com/search?q=${encodeURIComponent(buildGoogleSearchQuery(item))}`;
-    title.target='_blank'; title.rel='noopener noreferrer';
-    title.title='Search: '+buildGoogleSearchQuery(item);
-    title.innerHTML=`${escapeHtml(item.subTopic!=='—'?item.subTopic:'—')} <i class="fas fa-arrow-up-right-from-square"></i>`;
-    title.addEventListener('click',(e)=>e.stopPropagation());
-    headLeft.appendChild(title);
-    head.appendChild(headLeft);
-    card.appendChild(head);
+  /* If cards already rendered, only add new ones */
+  const startIdx = reset ? 0 : cardsContainer.querySelectorAll('.card').length;
+  const endIdx = Math.min(visibleCount, data.length);
 
-    const covPct = getSubjectCoveragePctForScope(item.subject, selectedJobs);
-    const covCls = covPct===100?'full':(covPct>=50?'mid':'');
-    const pctCls = covPct===100?'full':(covPct<50?'low':'');
-    const progRow=document.createElement('div');
-    progRow.className='card-progress-row';
-    const progWrap=document.createElement('div');
-    progWrap.className='progress-wrap';
-    progWrap.title = `Subject coverage${selectedJobs.size?' for selected job(s)':''}: ${covPct}%`;
-    progWrap.innerHTML = `
-      <span class="progress-bar"><span class="progress-fill ${covCls}" style="width:${covPct}%"></span></span>
-      <span class="progress-pct ${pctCls}">${covPct}%</span>
-    `;
-    progRow.appendChild(progWrap);
-    card.appendChild(progRow);
-
-    const meta=document.createElement('div');
-    meta.className='card-meta';
-    const mainCount = mainTopicCounts[item.mainTopic] || 1;
-    const subjCount = getSubjectCountForScope(item.subject, selectedJobs);
-
-    const topicLine=document.createElement('div');
-    topicLine.className='meta-line';
-    topicLine.title=`Topic: ${item.mainTopic}`;
-    topicLine.innerHTML=`
-      <i class="fas fa-folder"></i>
-      <span class="meta-label">Topic</span>
-      <span class="meta-value">${escapeHtml(item.mainTopic)}</span>
-      <span class="count-chip">${mainCount}</span>
-    `;
-    meta.appendChild(topicLine);
-
-    const subjLine=document.createElement('div');
-    subjLine.className='meta-line';
-    subjLine.title=`Subject: ${item.subject}`;
-    subjLine.innerHTML=`
-      <i class="fas fa-book"></i>
-      <span class="meta-label">Subject</span>
-      <span class="meta-value">${escapeHtml(item.subject)}</span>
-      <span class="count-chip">${subjCount}</span>
-    `;
-    meta.appendChild(subjLine);
-
-    if(item.job && item.job!=='—'){
-      const jobLine=document.createElement('div');
-      jobLine.className='meta-line';
-      jobLine.title=`Job: ${item.job}`;
-      jobLine.innerHTML=`
-        <i class="fas fa-briefcase"></i>
-        <span class="meta-label">Job</span>
-        <span class="meta-value">${escapeHtml(item.job)}</span>
-      `;
-      meta.appendChild(jobLine);
-    }
-
-    if(item.lastUpdate){
-      const dateLine=document.createElement('div');
-      dateLine.className='meta-line';
-      dateLine.title=`Last update: ${item.lastUpdate}`;
-      dateLine.innerHTML=`
-        <i class="fas fa-clock"></i>
-        <span class="meta-label">Date</span>
-        <span class="date-value">${escapeHtml(item.lastUpdate)}</span>
-      `;
-      meta.appendChild(dateLine);
-    }
-
-    card.appendChild(meta);
-
-    const foot=document.createElement('div');
-    foot.className='card-foot';
-    if(item.hasMarkdown){
-      const b=document.createElement('button');
-      b.type='button'; b.className='action action-read';
-      b.title=`Read notes for "${item.subTopic}"`;
-      b.innerHTML=`<i class="fas fa-book-open"></i> Read`;
-      b.addEventListener('click',(e)=>{ e.stopPropagation(); openNotesModal(item); });
-      foot.appendChild(b);
-    }
-    if(item.hasUrl){
-      const a=document.createElement('a');
-      a.href=item.url; a.target='_blank'; a.rel='noopener noreferrer';
-      a.className='action action-done';
-      a.title='Open complete chat';
-      a.innerHTML=`<i class="fas fa-circle-check"></i> Done <i class="fas fa-arrow-up-right-from-square" style="opacity:0.7;"></i>`;
-      a.addEventListener('click',(e)=>e.stopPropagation());
-      foot.appendChild(a);
-    } else {
-      const isCov = item.status==='covered';
-      const el=document.createElement(isCov?'span':'button');
-      el.className='action '+(isCov?'action-done':'action-pending');
-      el.title=isCov?'Marked done (has solution / notes)':'Click to copy DeepSeek prompt';
-      el.innerHTML=isCov
-        ?`<i class="fas fa-circle-check"></i> Done`
-        :`<i class="fas fa-clock"></i> Pending <i class="fas fa-copy" style="opacity:0.7;"></i>`;
-      if(!isCov) el.addEventListener('click',(e)=>{ e.stopPropagation(); copyPrompt(item); });
-      foot.appendChild(el);
-    }
-    if(item.hasSol){
-      const a=document.createElement('a');
-      a.href=item.solUrl; a.target='_blank'; a.rel='noopener noreferrer';
-      a.className='action action-sol';
-      a.title='Open solution file: '+item.solFileName;
-      a.innerHTML=`<i class="fas fa-file-lines"></i><span class="label">${escapeHtml(item.solFileName)}</span>`;
-      a.addEventListener('click',(e)=>e.stopPropagation());
-      foot.appendChild(a);
-    }
-    card.appendChild(foot);
+  for(let i=startIdx; i<endIdx; i++){
+    const item = data[i];
+    const card = buildCard(item);
     frag.appendChild(card);
-  });
-  cardsContainer.innerHTML='';
+  }
+
+  /* Remove old load-more if present */
+  const oldLm = cardsContainer.querySelector('.load-more-wrap');
+  if(oldLm) oldLm.remove();
+
   cardsContainer.appendChild(frag);
+
+  /* Add load-more if there are more */
+  if(endIdx < data.length){
+    const lm = buildLoadMore(filteredData.length, endIdx);
+    cardsContainer.appendChild(lm);
+  }
+
+  updateResultsMeta();
+}
+
+function buildCard(item){
+  const card=document.createElement('div');
+  card.className=`card ${item.status==='covered'?'is-covered':'is-pending'}`;
+  if(item.status==='pending'){
+    card.title='Click to copy DeepSeek prompt';
+    card.addEventListener('click',(e)=>{
+      if(e.target.closest('a,button')) return;
+      copyPrompt(item);
+    });
+  }
+
+  const head=document.createElement('div');
+  head.className='card-head';
+  const headLeft=document.createElement('div');
+  headLeft.className='card-head-left';
+  const srno=document.createElement('span');
+  srno.className='card-srno';
+  srno.textContent=`#${item.srno}`;
+  headLeft.appendChild(srno);
+  const title=document.createElement('a');
+  title.className='card-title';
+  title.href=`https://www.google.com/search?q=${encodeURIComponent(buildGoogleSearchQuery(item))}`;
+  title.target='_blank'; title.rel='noopener noreferrer';
+  title.title='Search: '+buildGoogleSearchQuery(item);
+  title.innerHTML=`${escapeHtml(item.subTopic!=='—'?item.subTopic:'—')} <i class="fas fa-arrow-up-right-from-square"></i>`;
+  title.addEventListener('click',(e)=>e.stopPropagation());
+  headLeft.appendChild(title);
+  head.appendChild(headLeft);
+  card.appendChild(head);
+
+  const covPct = getSubjectCoveragePctForScope(item.subject, selectedJobs);
+  const covCls = covPct===100?'full':(covPct>=50?'mid':'');
+  const pctCls = covPct===100?'full':(covPct<50?'low':'');
+  const progRow=document.createElement('div');
+  progRow.className='card-progress-row';
+  const progWrap=document.createElement('div');
+  progWrap.className='progress-wrap';
+  progWrap.title = `Subject coverage${selectedJobs.size?' for selected job(s)':''}: ${covPct}%`;
+  progWrap.innerHTML = `
+    <span class="progress-bar"><span class="progress-fill ${covCls}" style="width:${covPct}%"></span></span>
+    <span class="progress-pct ${pctCls}">${covPct}%</span>
+  `;
+  progRow.appendChild(progWrap);
+  card.appendChild(progRow);
+
+  const meta=document.createElement('div');
+  meta.className='card-meta';
+  const mainCount = mainTopicCounts[item.mainTopic] || 1;
+  const subjCount = getSubjectCountForScope(item.subject, selectedJobs);
+
+  const topicLine=document.createElement('div');
+  topicLine.className='meta-line';
+  topicLine.title=`Topic: ${item.mainTopic}`;
+  topicLine.innerHTML=`
+    <i class="fas fa-folder"></i>
+    <span class="meta-label">Topic</span>
+    <span class="meta-value">${escapeHtml(item.mainTopic)}</span>
+    <span class="count-chip">${mainCount}</span>
+  `;
+  meta.appendChild(topicLine);
+
+  const subjLine=document.createElement('div');
+  subjLine.className='meta-line';
+  subjLine.title=`Subject: ${item.subject}`;
+  subjLine.innerHTML=`
+    <i class="fas fa-book"></i>
+    <span class="meta-label">Subject</span>
+    <span class="meta-value">${escapeHtml(item.subject)}</span>
+    <span class="count-chip">${subjCount}</span>
+  `;
+  meta.appendChild(subjLine);
+
+  if(item.job && item.job!=='—'){
+    const jobLine=document.createElement('div');
+    jobLine.className='meta-line';
+    jobLine.title=`Job: ${item.job}`;
+    jobLine.innerHTML=`
+      <i class="fas fa-briefcase"></i>
+      <span class="meta-label">Job</span>
+      <span class="meta-value">${escapeHtml(item.job)}</span>
+    `;
+    meta.appendChild(jobLine);
+  }
+
+  if(item.lastUpdate){
+    const dateLine=document.createElement('div');
+    dateLine.className='meta-line';
+    dateLine.title=`Last update: ${item.lastUpdate}`;
+    dateLine.innerHTML=`
+      <i class="fas fa-clock"></i>
+      <span class="meta-label">Date</span>
+      <span class="date-value">${escapeHtml(item.lastUpdate)}</span>
+    `;
+    meta.appendChild(dateLine);
+  }
+
+  card.appendChild(meta);
+
+  const foot=document.createElement('div');
+  foot.className='card-foot';
+  if(item.hasMarkdown){
+    const b=document.createElement('button');
+    b.type='button'; b.className='action action-read';
+    b.title=`Read notes for "${item.subTopic}"`;
+    b.innerHTML=`<i class="fas fa-book-open"></i> Read`;
+    b.addEventListener('click',(e)=>{ e.stopPropagation(); openNotesModal(item); });
+    foot.appendChild(b);
+  }
+  if(item.hasUrl){
+    const a=document.createElement('a');
+    a.href=item.url; a.target='_blank'; a.rel='noopener noreferrer';
+    a.className='action action-done';
+    a.title='Open complete chat';
+    a.innerHTML=`<i class="fas fa-circle-check"></i> Done <i class="fas fa-arrow-up-right-from-square" style="opacity:0.7;"></i>`;
+    a.addEventListener('click',(e)=>e.stopPropagation());
+    foot.appendChild(a);
+  } else {
+    const isCov = item.status==='covered';
+    const el=document.createElement(isCov?'span':'button');
+    el.className='action '+(isCov?'action-done':'action-pending');
+    el.title=isCov?'Marked done (has solution / notes)':'Click to copy DeepSeek prompt';
+    el.innerHTML=isCov
+      ?`<i class="fas fa-circle-check"></i> Done`
+      :`<i class="fas fa-clock"></i> Pending <i class="fas fa-copy" style="opacity:0.7;"></i>`;
+    if(!isCov) el.addEventListener('click',(e)=>{ e.stopPropagation(); copyPrompt(item); });
+    foot.appendChild(el);
+  }
+  if(item.hasSol){
+    const a=document.createElement('a');
+    a.href=item.solUrl; a.target='_blank'; a.rel='noopener noreferrer';
+    a.className='action action-sol';
+    a.title='Open solution file: '+item.solFileName;
+    a.innerHTML=`<i class="fas fa-file-lines"></i><span class="label">${escapeHtml(item.solFileName)}</span>`;
+    a.addEventListener('click',(e)=>e.stopPropagation());
+    foot.appendChild(a);
+  }
+  card.appendChild(foot);
+  return card;
+}
+
+function buildLoadMore(total, shown){
+  const wrap=document.createElement('div');
+  wrap.className='load-more-wrap';
+
+  const remaining = total - shown;
+  const nextBatch = Math.min(PAGE_SIZE, remaining);
+
+  const pct = Math.round((shown / total) * 100);
+
+  wrap.innerHTML = `
+    <div class="load-more-info">
+      Showing <strong>${shown}</strong> of <strong>${total}</strong> topics
+    </div>
+    <div class="load-more-progress">
+      <div class="load-more-progress-fill" style="width:${pct}%"></div>
+    </div>
+    <button class="load-more-btn" type="button">
+      <i class="fas fa-arrow-down"></i>
+      Load ${nextBatch} more
+      <span class="lm-count">${remaining} left</span>
+    </button>
+  `;
+
+  const btn = wrap.querySelector('.load-more-btn');
+  btn.addEventListener('click',()=>{
+    visibleCount += PAGE_SIZE;
+    renderCards(filteredData, false);
+    /* Smooth scroll just a bit */
+    const newCard = cardsContainer.querySelectorAll('.card')[Math.min(visibleCount, filteredData.length)-1];
+    if(newCard) newCard.scrollIntoView({ behavior:'smooth', block:'center' });
+  });
+
+  return wrap;
 }
 
 /* ================= POPULATE FILTERS ================= */
 function populateFilters(data){
-  const S=new Set(),T=new Set(),J=new Set();
-  data.forEach(item=>{
-    if(item.subject&&item.subject!=='—') S.add(item.subject);
-    if(item.displayTopic&&item.displayTopic!=='—') T.add(item.displayTopic);
-    if(item.job&&item.job!=='—') J.add(item.job);
-  });
-  const sO=Array.from(S).sort().map(s=>({value:s,label:s}));
-  const tO=Array.from(T).sort().map(t=>({value:t,label:t}));
-  const jO=Array.from(J).sort().map(j=>({value:j,label:j}));
+  const all = getAllFilterOptions();
+  const sO=all.subjects.map(s=>({value:s,label:s}));
+  const tO=all.topics.map(t=>({value:t,label:t}));
+  const jO=all.jobs.map(j=>({value:j,label:j}));
   const sW=$('subjectMultiWrap'); sW.dataset.type='subjects';
   if(!rebuildSubjectSelect) rebuildSubjectSelect=buildMultiSelect(sW,sO,selectedSubjects,onFilterChange,true);
   else rebuildSubjectSelect(sO);
