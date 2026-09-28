@@ -56,11 +56,27 @@ input{font-family:inherit;} a{color:inherit;}
 }
 .brand{display:flex; align-items:center; gap:10px; min-width:0;}
 .brand-mark{
-  width:30px; height:30px; border-radius:8px;
+  width:32px; height:32px; border-radius:8px;
   background:linear-gradient(135deg,#2563eb,#7c3aed);
   display:grid; place-items:center; color:white; font-size:13px;
   box-shadow:0 3px 8px -2px rgba(37,99,235,0.4); flex-shrink:0;
+  cursor:pointer; transition:all 0.18s ease;
+  position:relative;
 }
+.brand-mark::after{
+  content:'';
+  position:absolute; inset:-3px;
+  border-radius:10px;
+  border:2px solid transparent;
+  transition:border-color 0.18s ease;
+}
+.brand-mark:hover{
+  transform:translateY(-1px) scale(1.04);
+  box-shadow:0 6px 14px -3px rgba(37,99,235,0.55);
+}
+.brand-mark:hover::after{ border-color:rgba(37,99,235,0.3); }
+.brand-mark:active{ transform:translateY(0) scale(0.98); }
+
 .brand-text{display:flex; flex-direction:column; min-width:0; line-height:1.15;}
 .brand-title{
   font-size:14px; font-weight:700; letter-spacing:-0.01em;
@@ -91,47 +107,79 @@ input{font-family:inherit;} a{color:inherit;}
   background:var(--bg-subtle); border-color:var(--border-strong);
   color:var(--text); transform:translateY(-1px); box-shadow:var(--shadow-sm);
 }
-.btn-ghost:active{transform:translateY(0);}
 .btn-primary{background:var(--text); color:white; border:1px solid var(--text);}
 .btn-primary:hover{background:#1e293b; transform:translateY(-1px); box-shadow:var(--shadow-md);}
 
 /* ============ CONTAINER ============ */
-.container{max-width:1400px; margin:0 auto; padding:16px 20px 20px;}
+.container{
+  max-width:1400px; margin:0 auto;
+  padding:16px 20px 20px;
+  min-height:calc(100vh - var(--header-h));
+  display:flex; flex-direction:column;
+}
 
-/* ============ STATS — COMPACT ============ */
+/* ============ STATS — FULL-WIDTH STRETCH ============ */
 .stats-grid{
-  display:grid; grid-template-columns:repeat(4,1fr);
-  gap:8px; margin-bottom:12px;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:10px;
+  margin-bottom:14px;
+  flex-shrink:0;
 }
 .stat-card{
-  background:var(--bg-elevated); border:1px solid var(--border);
-  border-radius:var(--radius); padding:8px 12px;
+  background:var(--bg-elevated);
+  border:1px solid var(--border);
+  border-radius:var(--radius-lg);
+  padding:14px 16px;
   box-shadow:var(--shadow-xs);
-  display:flex; align-items:center; gap:10px;
-  transition:all 0.15s ease;
+  display:flex; align-items:center; gap:12px;
+  transition:all 0.18s ease;
+  min-height:64px;
+  position:relative;
+  overflow:hidden;
 }
-.stat-card:hover{border-color:var(--border-strong); box-shadow:var(--shadow-sm);}
+.stat-card::before{
+  content:''; position:absolute; left:0; top:0; bottom:0; width:3px;
+  background:var(--border-strong);
+  transition:background 0.2s ease;
+}
+.stat-card.is-success::before{ background:var(--success); }
+.stat-card.is-warn::before{ background:var(--warn); }
+.stat-card.is-accent::before{ background:var(--accent); }
+.stat-card:hover{
+  border-color:var(--border-strong);
+  box-shadow:var(--shadow-md);
+  transform:translateY(-1px);
+}
 .stat-icon{
-  width:26px; height:26px; border-radius:7px;
+  width:38px; height:38px; border-radius:10px;
   display:grid; place-items:center; flex-shrink:0;
-  font-size:11px; background:var(--bg-inset); color:var(--text-secondary);
+  font-size:15px; background:var(--bg-inset); color:var(--text-secondary);
+  transition:all 0.2s ease;
 }
-.stat-card.is-success .stat-icon{background:var(--success-soft); color:var(--success);}
-.stat-card.is-warn .stat-icon{background:var(--warn-soft); color:var(--warn);}
-.stat-body{display:flex; flex-direction:column; min-width:0; line-height:1.1;}
+.stat-card.is-success .stat-icon{ background:var(--success-soft); color:var(--success); }
+.stat-card.is-warn .stat-icon{ background:var(--warn-soft); color:var(--warn); }
+.stat-card.is-accent .stat-icon{ background:var(--accent-soft); color:var(--accent); }
+.stat-body{
+  display:flex; flex-direction:column; min-width:0;
+  line-height:1.15; flex:1;
+}
 .stat-label{
-  font-size:10px; font-weight:600; color:var(--text-muted);
-  text-transform:uppercase; letter-spacing:0.05em;
+  font-size:10.5px; font-weight:600; color:var(--text-muted);
+  text-transform:uppercase; letter-spacing:0.06em;
+  margin-bottom:2px;
 }
 .stat-value{
-  font-size:15px; font-weight:700; color:var(--text);
-  letter-spacing:-0.01em; font-variant-numeric:tabular-nums;
+  font-size:22px; font-weight:700; color:var(--text);
+  letter-spacing:-0.02em; font-variant-numeric:tabular-nums;
+  line-height:1;
 }
-.stat-card.is-success .stat-value{color:var(--success);}
-.stat-card.is-warn .stat-value{color:var(--warn);}
+.stat-card.is-success .stat-value{ color:var(--success); }
+.stat-card.is-warn .stat-value{ color:var(--warn); }
+.stat-card.is-accent .stat-value{ color:var(--accent); }
 
 /* ============ SEARCH ============ */
-.search-bar{position:relative; margin-bottom:10px;}
+.search-bar{position:relative; margin-bottom:10px; flex-shrink:0;}
 .search-bar i.search-icon{
   position:absolute; left:14px; top:50%; transform:translateY(-50%);
   color:var(--text-muted); font-size:13px; pointer-events:none;
@@ -160,6 +208,7 @@ input{font-family:inherit;} a{color:inherit;}
   border-radius:var(--radius-lg); padding:12px 14px;
   margin-bottom:12px; box-shadow:var(--shadow-xs);
   display:flex; flex-direction:column; gap:10px;
+  flex-shrink:0;
 }
 .filter-row{display:grid; grid-template-columns:repeat(3,1fr); gap:10px;}
 .filter-group{min-width:0;}
@@ -267,6 +316,7 @@ input{font-family:inherit;} a{color:inherit;}
 .results-meta{
   display:flex; align-items:center; justify-content:space-between;
   padding:0 2px 10px; font-size:12px; color:var(--text-muted); font-weight:500;
+  flex-shrink:0;
 }
 .results-meta .count-strong{color:var(--text); font-weight:700;}
 
@@ -346,7 +396,7 @@ input{font-family:inherit;} a{color:inherit;}
 }
 .badge-job{background:var(--accent-soft); color:var(--accent); border-color:var(--accent-border);}
 
-/* --- ROW 2: Progress bar + date --- */
+/* --- ROW 2: Progress bar + percentage --- */
 .card-progress-row{
   display:flex; align-items:center; gap:10px;
 }
@@ -363,7 +413,6 @@ input{font-family:inherit;} a{color:inherit;}
   height:100%; border-radius:6px;
   transition:width 0.5s cubic-bezier(0.4,0,0.2,1), background 0.2s ease;
   background:linear-gradient(90deg,#fb923c,#f97316);
-  position:relative;
 }
 .progress-fill.mid{background:linear-gradient(90deg,#60a5fa,#2563eb);}
 .progress-fill.full{background:linear-gradient(90deg,#34d399,#0d9488);}
@@ -378,52 +427,46 @@ input{font-family:inherit;} a{color:inherit;}
 .progress-pct.full{color:var(--success);}
 .progress-pct.low{color:var(--warn);}
 
-.card-date{
-  display:inline-flex; align-items:center; gap:4px;
-  font-size:10.5px; font-weight:500;
-  color:var(--text-faint);
-  white-space:nowrap; flex-shrink:0;
-}
-.card-date i{font-size:9px;}
-
-/* --- ROW 3: Topic · Subject meta --- */
+/* --- ROW 3: Topic · Subject · Job · Date (stacked meta) --- */
 .card-meta{
-  display:flex; flex-wrap:wrap; gap:6px 8px;
+  display:flex; flex-direction:column; gap:5px;
   padding-top:2px;
   font-size:12.5px;
 }
-.meta-chip{
-  display:inline-flex; align-items:center; gap:5px;
-  background:var(--bg-subtle);
-  border:1px solid var(--border-subtle);
-  padding:3px 8px 3px 6px;
-  border-radius:7px;
-  min-width:0; max-width:100%;
-  transition:all 0.12s ease;
+.meta-line{
+  display:flex; align-items:center; gap:6px;
+  min-width:0; flex-wrap:wrap;
+  color:var(--text-secondary);
 }
-.meta-chip:hover{background:var(--bg-inset);}
-.meta-chip i{
-  font-size:10px; color:var(--text-faint); flex-shrink:0;
+.meta-line i{
+  font-size:11px; color:var(--text-faint);
+  width:14px; text-align:center; flex-shrink:0;
 }
-.meta-chip .meta-label{
+.meta-line .meta-label{
   font-size:10px; font-weight:600;
   color:var(--text-faint); text-transform:uppercase;
-  letter-spacing:0.04em;
+  letter-spacing:0.05em;
   flex-shrink:0;
 }
-.meta-chip .meta-value{
+.meta-line .meta-value{
   font-weight:600; color:var(--text);
   white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
-  max-width:180px;
+  max-width:220px; min-width:0;
 }
-.meta-chip .count-chip{
+.meta-line .count-chip{
   font-family:var(--font-mono);
   font-size:10px; font-weight:700;
-  background:var(--bg-elevated); color:var(--text-secondary);
+  background:var(--bg-inset); color:var(--text-secondary);
   padding:1px 6px; border-radius:20px;
   border:1px solid var(--border);
   flex-shrink:0;
   letter-spacing:-0.02em;
+}
+.meta-line .date-value{
+  font-family:var(--font-mono);
+  font-size:11px; font-weight:600;
+  color:var(--text-secondary);
+  letter-spacing:-0.01em;
 }
 
 /* --- ROW 4: Actions --- */
@@ -443,24 +486,12 @@ input{font-family:inherit;} a{color:inherit;}
 }
 .action i{font-size:10px;}
 .action-read{background:var(--bg-inset); color:var(--text-secondary); border-color:var(--border);}
-.action-read:hover{
-  background:var(--text); color:white; border-color:var(--text);
-  transform:translateY(-1px); box-shadow:var(--shadow-sm);
-}
+.action-read:hover{background:var(--text); color:white; border-color:var(--text); transform:translateY(-1px); box-shadow:var(--shadow-sm);}
 .action-done{background:var(--success-soft); color:var(--success); border-color:var(--success-border);}
-.action-done:hover{
-  background:var(--success); color:white; border-color:var(--success);
-  transform:translateY(-1px); box-shadow:0 4px 10px -2px rgba(13,148,136,0.35);
-}
+.action-done:hover{background:var(--success); color:white; border-color:var(--success); transform:translateY(-1px); box-shadow:0 4px 10px -2px rgba(13,148,136,0.35);}
 .action-pending{background:var(--warn-soft); color:var(--warn); border-color:var(--warn-border);}
-.action-pending:hover{
-  background:var(--warn); color:white; border-color:var(--warn);
-  transform:translateY(-1px); box-shadow:0 4px 10px -2px rgba(194,65,12,0.35);
-}
-.action-sol{
-  background:var(--bg-elevated); color:var(--text-secondary);
-  border-color:var(--border); max-width:130px;
-}
+.action-pending:hover{background:var(--warn); color:white; border-color:var(--warn); transform:translateY(-1px); box-shadow:0 4px 10px -2px rgba(194,65,12,0.35);}
+.action-sol{background:var(--bg-elevated); color:var(--text-secondary); border-color:var(--border); max-width:130px;}
 .action-sol:hover{border-color:var(--border-strong); color:var(--text); background:var(--bg-subtle);}
 .action-sol .label{overflow:hidden; text-overflow:ellipsis; max-width:88px;}
 
@@ -500,10 +531,7 @@ input{font-family:inherit;} a{color:inherit;}
   transition:all 0.18s cubic-bezier(0.4,0,0.2,1);
   -webkit-tap-highlight-color:transparent;
 }
-.fab:hover{
-  background:white; color:var(--text); border-color:var(--border-strong);
-  transform:translateY(-2px); box-shadow:var(--shadow-lg);
-}
+.fab:hover{background:white; color:var(--text); border-color:var(--border-strong); transform:translateY(-2px); box-shadow:var(--shadow-lg);}
 .fab:active{transform:translateY(0) scale(0.96);}
 .fab.hidden{opacity:0; pointer-events:none; transform:scale(0.7) translateY(10px);}
 .fab-primary{background:var(--text); color:white; border-color:var(--text);}
@@ -555,16 +583,9 @@ input{font-family:inherit;} a{color:inherit;}
 }
 .modal-body::-webkit-scrollbar{width:10px;}
 .modal-body::-webkit-scrollbar-track{background:transparent;}
-.modal-body::-webkit-scrollbar-thumb{
-  background:var(--border-strong); border-radius:8px;
-  border:3px solid var(--bg-elevated);
-}
+.modal-body::-webkit-scrollbar-thumb{background:var(--border-strong); border-radius:8px; border:3px solid var(--bg-elevated);}
 .modal-body::-webkit-scrollbar-thumb:hover{background:var(--text-faint);}
-.modal-body h1{
-  font-size:22px; font-weight:700; color:var(--text);
-  letter-spacing:-0.02em; margin:24px 0 12px; line-height:1.25;
-  padding-bottom:10px; border-bottom:1px solid var(--border);
-}
+.modal-body h1{font-size:22px; font-weight:700; color:var(--text); letter-spacing:-0.02em; margin:24px 0 12px; line-height:1.25; padding-bottom:10px; border-bottom:1px solid var(--border);}
 .modal-body h1:first-child{margin-top:0;}
 .modal-body h2{font-size:17px; font-weight:700; color:var(--text); letter-spacing:-0.01em; margin:22px 0 10px; line-height:1.3;}
 .modal-body h3{font-size:15px; font-weight:700; color:var(--text); margin:18px 0 8px;}
@@ -575,39 +596,16 @@ input{font-family:inherit;} a{color:inherit;}
 .modal-body ul,.modal-body ol{margin:10px 0 10px 22px;}
 .modal-body li{margin:5px 0; word-break:break-word;}
 .modal-body li::marker{color:var(--text-faint);}
-.modal-body code{
-  background:var(--bg-inset); color:#b91c1c;
-  padding:2px 6px; border-radius:5px;
-  font-family:var(--font-mono); font-size:12.5px;
-  font-weight:500; word-break:break-word;
-}
-.modal-body pre{
-  background:#0f172a; color:#e2e8f0;
-  padding:14px 16px; border-radius:var(--radius);
-  overflow-x:auto; margin:14px 0; font-size:12.5px; line-height:1.6;
-}
+.modal-body code{background:var(--bg-inset); color:#b91c1c; padding:2px 6px; border-radius:5px; font-family:var(--font-mono); font-size:12.5px; font-weight:500; word-break:break-word;}
+.modal-body pre{background:#0f172a; color:#e2e8f0; padding:14px 16px; border-radius:var(--radius); overflow-x:auto; margin:14px 0; font-size:12.5px; line-height:1.6;}
 .modal-body pre code{background:transparent; color:inherit; padding:0; font-size:inherit;}
-.modal-body blockquote{
-  border-left:3px solid var(--accent); background:var(--accent-soft);
-  padding:10px 16px; margin:14px 0;
-  border-radius:0 var(--radius) var(--radius) 0;
-  color:var(--text-secondary); font-style:italic;
-}
+.modal-body blockquote{border-left:3px solid var(--accent); background:var(--accent-soft); padding:10px 16px; margin:14px 0; border-radius:0 var(--radius) var(--radius) 0; color:var(--text-secondary); font-style:italic;}
 .modal-body hr{border:none; border-top:1px solid var(--border); margin:20px 0;}
 .modal-body a{color:var(--accent); text-decoration:underline; text-underline-offset:2px; word-break:break-word;}
 .modal-body a:hover{color:var(--accent-hover);}
-.modal-body table{
-  width:100%; border-collapse:separate; border-spacing:0;
-  margin:14px 0; font-size:13px;
-  border:1px solid var(--border); border-radius:var(--radius); overflow:hidden;
-}
+.modal-body table{width:100%; border-collapse:separate; border-spacing:0; margin:14px 0; font-size:13px; border:1px solid var(--border); border-radius:var(--radius); overflow:hidden;}
 .modal-body thead{background:var(--bg-subtle);}
-.modal-body th{
-  padding:10px 14px; text-align:left; font-weight:700;
-  font-size:12px; color:var(--text-secondary);
-  text-transform:uppercase; letter-spacing:0.04em;
-  border-bottom:1px solid var(--border); word-break:break-word;
-}
+.modal-body th{padding:10px 14px; text-align:left; font-weight:700; font-size:12px; color:var(--text-secondary); text-transform:uppercase; letter-spacing:0.04em; border-bottom:1px solid var(--border); word-break:break-word;}
 .modal-body td{padding:9px 14px; border-bottom:1px solid var(--border-subtle); vertical-align:top; word-break:break-word;}
 .modal-body tbody tr:last-child td{border-bottom:none;}
 .modal-body tbody tr:hover{background:var(--bg-subtle);}
@@ -616,6 +614,95 @@ input{font-family:inherit;} a{color:inherit;}
   background:var(--bg-subtle); display:flex; justify-content:flex-end;
   gap:8px; flex-wrap:wrap;
 }
+
+/* ============ QUICK VIEW MODAL (Brand click) ============ */
+.qv-modal{max-width:760px;}
+.qv-tabs{
+  display:flex; gap:4px; padding:10px 20px 0;
+  border-bottom:1px solid var(--border);
+  background:linear-gradient(180deg,var(--bg-elevated),var(--bg-subtle));
+  overflow-x:auto; scrollbar-width:none;
+}
+.qv-tabs::-webkit-scrollbar{display:none;}
+.qv-tab{
+  display:inline-flex; align-items:center; gap:7px;
+  padding:10px 16px; border-radius:10px 10px 0 0;
+  font-size:13px; font-weight:600; color:var(--text-muted);
+  border:1px solid transparent; border-bottom:none;
+  transition:all 0.15s ease; white-space:nowrap;
+  margin-bottom:-1px; position:relative;
+}
+.qv-tab i{font-size:12px;}
+.qv-tab:hover{color:var(--text); background:rgba(255,255,255,0.6);}
+.qv-tab.active{
+  color:var(--accent); background:var(--bg-elevated);
+  border-color:var(--border); border-bottom-color:var(--bg-elevated);
+}
+.qv-tab .qv-count{
+  font-size:10px; font-weight:700;
+  background:var(--bg-inset); color:var(--text-secondary);
+  padding:1px 7px; border-radius:20px;
+  font-family:var(--font-mono);
+  letter-spacing:-0.02em;
+}
+.qv-tab.active .qv-count{ background:var(--accent-soft); color:var(--accent); }
+
+.qv-body{
+  padding:16px 20px 20px; overflow-y:auto; flex:1;
+  background:var(--bg-elevated);
+}
+.qv-list{
+  display:flex; flex-direction:column; gap:6px;
+}
+.qv-item{
+  display:flex; align-items:center; justify-content:space-between;
+  gap:12px; padding:10px 14px;
+  border:1px solid var(--border); border-radius:var(--radius);
+  background:var(--bg-elevated);
+  transition:all 0.15s ease;
+  text-align:left; width:100%;
+  cursor:pointer;
+  font-family:inherit;
+  font-size:13.5px;
+}
+.qv-item:hover{
+  border-color:var(--accent-border);
+  background:var(--accent-soft);
+  transform:translateX(2px);
+}
+.qv-item-left{
+  display:flex; align-items:center; gap:10px;
+  min-width:0; flex:1;
+}
+.qv-item-icon{
+  width:26px; height:26px; border-radius:7px;
+  display:grid; place-items:center; flex-shrink:0;
+  font-size:11px;
+  background:var(--bg-inset); color:var(--text-secondary);
+}
+.qv-item[data-kind="job"] .qv-item-icon{ background:var(--accent-soft); color:var(--accent); }
+.qv-item[data-kind="subject"] .qv-item-icon{ background:#f5f3ff; color:#7c3aed; }
+.qv-item[data-kind="topic"] .qv-item-icon{ background:var(--success-soft); color:var(--success); }
+.qv-item[data-kind="subtopic"] .qv-item-icon{ background:var(--warn-soft); color:var(--warn); }
+.qv-item-label{
+  font-weight:600; color:var(--text);
+  word-break:break-word; min-width:0;
+  text-align:left;
+}
+.qv-item-count{
+  font-family:var(--font-mono);
+  font-size:11px; font-weight:700;
+  background:var(--bg-inset); color:var(--text-secondary);
+  padding:2px 8px; border-radius:20px;
+  flex-shrink:0;
+  letter-spacing:-0.02em;
+}
+.qv-item:hover .qv-item-count{ background:white; color:var(--accent); }
+.qv-empty{
+  padding:40px 20px; text-align:center;
+  color:var(--text-muted); font-size:13px;
+}
+.qv-empty i{ font-size:24px; color:var(--text-faint); display:block; margin-bottom:8px; }
 
 /* ============ TOAST ============ */
 .toast{
@@ -634,7 +721,7 @@ input{font-family:inherit;} a{color:inherit;}
 
 /* ============ RESPONSIVE ============ */
 @media (max-width:900px){
-  .stats-grid{grid-template-columns:repeat(4,1fr);}
+  .stats-grid{grid-template-columns:repeat(2,1fr);}
   .filter-row{grid-template-columns:1fr 1fr;}
   .filter-row .filter-group:last-child{grid-column:span 2;}
   .cards{grid-template-columns:repeat(auto-fill,minmax(300px,1fr));}
@@ -642,12 +729,13 @@ input{font-family:inherit;} a{color:inherit;}
 @media (max-width:640px){
   :root{--header-h:52px;}
   .app-header{padding:0 14px;}
-  .container{padding:12px 14px 16px;}
+  .container{padding:12px 14px 16px; min-height:auto;}
   .stats-grid{gap:6px; margin-bottom:10px;}
-  .stat-card{padding:6px 8px; border-radius:var(--radius-sm); gap:7px;}
-  .stat-icon{width:22px; height:22px; font-size:9px;}
+  .stat-card{padding:8px 10px; border-radius:var(--radius-sm); gap:8px; min-height:56px;}
+  .stat-card::before{ width:2px; }
+  .stat-icon{width:28px; height:28px; font-size:12px; border-radius:7px;}
   .stat-label{font-size:9px;}
-  .stat-value{font-size:13.5px;}
+  .stat-value{font-size:16px;}
   .filter-row{grid-template-columns:1fr; gap:8px;}
   .filter-row .filter-group:last-child{grid-column:auto;}
   .filter-panel{padding:10px 12px;}
@@ -655,8 +743,7 @@ input{font-family:inherit;} a{color:inherit;}
   .card{padding:12px 13px 10px; border-radius:var(--radius);}
   .card-title{font-size:16.5px;}
   .card-srno{font-size:11px; padding:2px 6px;}
-  .card-meta{font-size:12px;}
-  .meta-chip .meta-value{max-width:130px;}
+  .meta-line .meta-value{max-width:180px;}
   .fab-cluster{bottom:14px; left:14px; gap:6px;}
   .fab{width:40px; height:40px; border-radius:11px; font-size:13px;}
   .modal{border-radius:var(--radius-lg);}
@@ -668,16 +755,20 @@ input{font-family:inherit;} a{color:inherit;}
   .modal-body th,.modal-body td{padding:8px 10px;}
   .modal-foot{padding:10px 16px;}
   .btn span.hide-sm{display:none;}
+  .qv-tabs{padding:8px 12px 0; gap:2px;}
+  .qv-tab{padding:8px 12px; font-size:12px;}
+  .qv-body{padding:12px 14px 14px;}
+  .qv-item{padding:9px 12px; font-size:13px;}
 }
 @media (max-width:400px){
   .brand-sub{display:none;}
   .brand-title{font-size:13px;}
   .btn{padding:6px 10px; font-size:12px;}
-  .stat-value{font-size:13px;}
+  .stat-value{font-size:15px;}
   .stat-label{font-size:8.5px;}
-  .stat-icon{width:20px; height:20px; font-size:8px;}
+  .stat-icon{width:26px; height:26px; font-size:11px;}
   .card-title{font-size:15.5px;}
-  .meta-chip .meta-value{max-width:100px;}
+  .meta-line .meta-value{max-width:140px;}
 }
 </style>
 </head>
@@ -686,7 +777,9 @@ input{font-family:inherit;} a{color:inherit;}
 <header class="app-header">
   <div class="app-header-inner">
     <div class="brand">
-      <div class="brand-mark"><i class="fas fa-layer-group"></i></div>
+      <button class="brand-mark" id="brandMarkBtn" title="Quick view — categories & counts" aria-label="Open quick view">
+        <i class="fas fa-layer-group"></i>
+      </button>
       <div class="brand-text">
         <div class="brand-title" id="brandTitle"><span id="brandTitleText">Topic Tracker</span></div>
         <div class="brand-sub">Job preparation dashboard</div>
@@ -703,9 +796,9 @@ input{font-family:inherit;} a{color:inherit;}
 
 <div class="container">
 
-  <!-- COMPACT STATS -->
+  <!-- FULL-WIDTH STRETCH STATS -->
   <div class="stats-grid">
-    <div class="stat-card">
+    <div class="stat-card is-accent">
       <div class="stat-icon"><i class="fas fa-layer-group"></i></div>
       <div class="stat-body">
         <div class="stat-label">Total</div>
@@ -735,7 +828,6 @@ input{font-family:inherit;} a{color:inherit;}
     </div>
   </div>
 
-  <!-- SEARCH -->
   <div class="search-bar">
     <i class="fas fa-search search-icon"></i>
     <input type="text" id="globalSearchInput"
@@ -746,7 +838,6 @@ input{font-family:inherit;} a{color:inherit;}
     </button>
   </div>
 
-  <!-- FILTERS -->
   <div class="filter-panel">
     <div class="filter-row">
       <div class="filter-group">
@@ -824,6 +915,7 @@ input{font-family:inherit;} a{color:inherit;}
   </button>
 </div>
 
+<!-- NOTES MODAL -->
 <div class="overlay" id="modalOverlay">
   <div class="modal" role="dialog" aria-modal="true">
     <div class="modal-head">
@@ -843,6 +935,41 @@ input{font-family:inherit;} a{color:inherit;}
       <button class="btn btn-ghost" id="modalCloseBtn2"><i class="fas fa-times"></i> Close</button>
       <button class="btn btn-primary" id="modalCopyBtn"><i class="fas fa-copy"></i> Copy notes</button>
     </div>
+  </div>
+</div>
+
+<!-- QUICK VIEW MODAL -->
+<div class="overlay" id="qvOverlay">
+  <div class="modal qv-modal" role="dialog" aria-modal="true">
+    <div class="modal-head">
+      <div class="modal-head-text">
+        <div class="modal-title">
+          <i class="fas fa-compass"></i>
+          <span>Quick View</span>
+        </div>
+        <div class="modal-sub" id="qvSubtitle">Browse all categories</div>
+      </div>
+      <button class="modal-close" id="qvCloseBtn" title="Close">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+
+    <div class="qv-tabs" id="qvTabs">
+      <button class="qv-tab active" data-tab="job">
+        <i class="fas fa-briefcase"></i> Jobs <span class="qv-count" id="qvJobCount">0</span>
+      </button>
+      <button class="qv-tab" data-tab="subject">
+        <i class="fas fa-book"></i> Subjects <span class="qv-count" id="qvSubjectCount">0</span>
+      </button>
+      <button class="qv-tab" data-tab="topic">
+        <i class="fas fa-folder"></i> Topics <span class="qv-count" id="qvTopicCount">0</span>
+      </button>
+      <button class="qv-tab" data-tab="subtopic">
+        <i class="fas fa-list-ul"></i> Subtopics <span class="qv-count" id="qvSubtopicCount">0</span>
+      </button>
+    </div>
+
+    <div class="qv-body" id="qvBody"></div>
   </div>
 </div>
 
@@ -876,7 +1003,12 @@ const cardsContainer=$('cardsContainer'), statTotal=$('statTotal'), statCovered=
       globalSearchInput=$('globalSearchInput'), globalSearchClear=$('globalSearchClear'),
       modalOverlay=$('modalOverlay'), modalTitleText=$('modalTitleText'), modalSubtitle=$('modalSubtitle'),
       modalBody=$('modalBody'), modalCloseBtn=$('modalCloseBtn'), modalCloseBtn2=$('modalCloseBtn2'),
-      modalCopyBtn=$('modalCopyBtn');
+      modalCopyBtn=$('modalCopyBtn'),
+      brandMarkBtn=$('brandMarkBtn'),
+      qvOverlay=$('qvOverlay'), qvCloseBtn=$('qvCloseBtn'), qvBody=$('qvBody'),
+      qvTabs=$('qvTabs'), qvSubtitle=$('qvSubtitle'),
+      qvJobCount=$('qvJobCount'), qvSubjectCount=$('qvSubjectCount'),
+      qvTopicCount=$('qvTopicCount'), qvSubtopicCount=$('qvSubtopicCount');
 
 let rawData=[], filteredData=[];
 let selectedSubjects=new Set(), selectedTopics=new Set(), selectedJobs=new Set();
@@ -888,7 +1020,11 @@ let toastTimer=null;
 let rebuildSubjectSelect=null, rebuildTopicSelect=null, rebuildJobSelect=null;
 let filterRefreshScheduled=false, isLoading=false;
 
-/* PERSIST */
+/* Quick view state */
+let qvActiveTab='job';
+let qvData=null;
+
+/* ================= PERSIST ================= */
 function saveFiltersToStorage(){
   try{ localStorage.setItem(LS_FILTERS_KEY, JSON.stringify({
     subjects:Array.from(selectedSubjects), topics:Array.from(selectedTopics),
@@ -913,7 +1049,7 @@ function saveScrollPosition(){ try{ localStorage.setItem(LS_SCROLL_KEY,String(wi
 function getSavedScrollPosition(){ try{ const v=localStorage.getItem(LS_SCROLL_KEY); return v?(parseInt(v,10)||0):0; }catch(e){ return 0; } }
 function clearPersistedData(){ try{ localStorage.removeItem(LS_DATA_KEY); localStorage.removeItem(LS_TS_KEY); }catch(e){} }
 
-/* HELPERS */
+/* ================= HELPERS ================= */
 function escapeHtml(u){ if(u==null) return ''; return String(u).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#039;'); }
 function extractFileName(url){
   if(!url||url==='#') return 'sol';
@@ -943,7 +1079,7 @@ function scheduleFastFilterRefresh(){
   requestAnimationFrame(()=>{ filterRefreshScheduled=false; refreshAllFilters(); applyFiltersAndRender(); saveFiltersToStorage(); });
 }
 
-/* CSV */
+/* ================= CSV ================= */
 function parseCSV(t){
   const rows=[]; let row=[],field='',q=false;
   for(let i=0;i<t.length;i++){
@@ -1009,7 +1145,7 @@ function mapRowsToObjects(rows){
   return out;
 }
 
-/* COUNTS */
+/* ================= COUNTS ================= */
 function computeCounts(data){
   subjectCounts={}; mainTopicCounts={}; subjectCoverageScoped={};
   const allJobs=new Set();
@@ -1062,7 +1198,7 @@ function updateBrandTitle(){
   else brandTitle.textContent='Topic Tracker';
 }
 
-/* AVAILABLE OPTIONS */
+/* ================= FILTER OPTIONS ================= */
 function getAvailableOptions(exclude){
   const aS=exclude==='subject'?new Set():selectedSubjects;
   const aT=exclude==='topic'?new Set():selectedTopics;
@@ -1098,7 +1234,7 @@ function pruneSelections(){
   Array.from(selectedJobs).forEach(j=>{ if(!a.jobs.includes(j)) selectedJobs.delete(j); });
 }
 
-/* MULTI-SELECT */
+/* ================= MULTI-SELECT ================= */
 function buildMultiSelect(container,options,selectedSet,onUpdate,enableSearch){
   const drop=container.querySelector('.ms-drop'), trig=container.querySelector('.ms-trigger'), ph=container.querySelector('.ph');
   function close(){ drop.classList.remove('open'); trig.classList.remove('open'); }
@@ -1188,7 +1324,7 @@ function buildMultiSelect(container,options,selectedSet,onUpdate,enableSearch){
   return rebuild;
 }
 
-/* STATUS SEGMENTS */
+/* ================= STATUS SEGMENTS ================= */
 function setupStatusSegments(){
   if(cbCovered.dataset.la) return;
   cbCovered.dataset.la='1'; cbPending.dataset.la='1';
@@ -1216,7 +1352,7 @@ function refreshAllFilters(){
   if(rebuildJobSelect) rebuildJobSelect(jO);
 }
 
-/* FILTER + RENDER */
+/* ================= FILTER + RENDER ================= */
 function applyFiltersAndRender(){
   filteredData=rawData.filter(item=>{
     if(selectedSubjects.size>0&&!selectedSubjects.has(item.subject)) return false;
@@ -1256,7 +1392,7 @@ function resetAllFilters(silent){
 }
 resetFiltersBtn.addEventListener('click',()=>resetAllFilters(false));
 
-/* PROMPT */
+/* ================= PROMPT ================= */
 function buildGoogleSearchQuery(item){
   const p=[];
   if(item.subTopic&&item.subTopic!=='—') p.push(item.subTopic);
@@ -1297,7 +1433,7 @@ function showToast(m){
   toastTimer=setTimeout(()=>toast.classList.remove('show'),1900);
 }
 
-/* MARKDOWN */
+/* ================= MARKDOWN ================= */
 function renderMarkdown(md){
   if(!md) return '';
   let h=md.replace(/\r\n/g,'\n').replace(/\r/g,'\n');
@@ -1354,7 +1490,7 @@ function inline(t){
   return s;
 }
 
-/* MODAL */
+/* ================= NOTES MODAL ================= */
 function openNotesModal(item){
   if(!item.hasMarkdown) return;
   currentModalMarkdown=item.markdownNotes;
@@ -1378,7 +1514,6 @@ function closeNotesModal(){
 modalCloseBtn.addEventListener('click',closeNotesModal);
 modalCloseBtn2.addEventListener('click',closeNotesModal);
 modalOverlay.addEventListener('click',(e)=>{ if(e.target===modalOverlay) closeNotesModal(); });
-document.addEventListener('keydown',(e)=>{ if(e.key==='Escape'&&modalOverlay.classList.contains('open')) closeNotesModal(); });
 modalCopyBtn.addEventListener('click',()=>{
   if(!currentModalMarkdown) return;
   if(fallbackCopy(currentModalMarkdown)){ showToast('Notes copied'); return; }
@@ -1387,11 +1522,158 @@ modalCopyBtn.addEventListener('click',()=>{
   } else showToast('Copy failed');
 });
 
+/* ================= QUICK VIEW (Brand click) ================= */
+function computeQvData(){
+  const jobsMap=new Map(), subjectsMap=new Map(),
+        topicsMap=new Map(), subtopicsMap=new Map();
+
+  rawData.forEach(item=>{
+    if(item.job&&item.job!=='—'){
+      if(!jobsMap.has(item.job)) jobsMap.set(item.job,{count:0,subjects:new Set()});
+      const j=jobsMap.get(item.job);
+      j.count++;
+      if(item.subject&&item.subject!=='—') j.subjects.add(item.subject);
+    }
+    if(item.subject&&item.subject!=='—'){
+      if(!subjectsMap.has(item.subject)) subjectsMap.set(item.subject,{count:0,jobs:new Set()});
+      const s=subjectsMap.get(item.subject);
+      s.count++;
+      if(item.job&&item.job!=='—') s.jobs.add(item.job);
+    }
+    if(item.mainTopic&&item.mainTopic!=='—'){
+      if(!topicsMap.has(item.mainTopic)) topicsMap.set(item.mainTopic,{count:0,subjects:new Set()});
+      const t=topicsMap.get(item.mainTopic);
+      t.count++;
+      if(item.subject&&item.subject!=='—') t.subjects.add(item.subject);
+    }
+    if(item.subTopic&&item.subTopic!=='—'){
+      if(!subtopicsMap.has(item.subTopic)) subtopicsMap.set(item.subTopic,{count:0,topics:new Set()});
+      const st=subtopicsMap.get(item.subTopic);
+      st.count++;
+      if(item.mainTopic&&item.mainTopic!=='—') st.topics.add(item.mainTopic);
+    }
+  });
+
+  const toArr=(map,kind)=>Array.from(map.entries()).map(([name,val])=>({
+    name, kind, count:val.count,
+    meta:[...(val.subjects||val.jobs||val.topics||[])].slice(0,3)
+  })).sort((a,b)=>b.count-a.count||a.name.localeCompare(b.name));
+
+  return {
+    jobs:toArr(jobsMap,'job'),
+    subjects:toArr(subjectsMap,'subject'),
+    topics:toArr(topicsMap,'topic'),
+    subtopics:toArr(subtopicsMap,'subtopic')
+  };
+}
+
+function openQuickView(){
+  qvData = computeQvData();
+  qvJobCount.textContent = qvData.jobs.length;
+  qvSubjectCount.textContent = qvData.subjects.length;
+  qvTopicCount.textContent = qvData.topics.length;
+  qvSubtopicCount.textContent = qvData.subtopics.length;
+
+  /* Set active tab button classes */
+  Array.from(qvTabs.querySelectorAll('.qv-tab')).forEach(t=>{
+    t.classList.toggle('active', t.dataset.tab===qvActiveTab);
+  });
+
+  renderQvBody();
+  qvOverlay.classList.add('open');
+  document.body.style.overflow='hidden';
+}
+
+function renderQvBody(){
+  if(!qvData){ qvBody.innerHTML=''; return; }
+
+  const kindIcons = { job:'fa-briefcase', subject:'fa-book', topic:'fa-folder', subtopic:'fa-list-ul' };
+  const kindLabels = { job:'Job', subject:'Subject', topic:'Topic', subtopic:'Subtopic' };
+
+  const items = qvData[qvActiveTab+'s'] || [];
+  qvSubtitle.textContent = `${items.length} ${qvActiveTab}${items.length===1?'':'s'} in dataset`;
+
+  if(!items.length){
+    qvBody.innerHTML = `<div class="qv-empty">
+      <i class="fas fa-inbox"></i>
+      No ${qvActiveTab}s found
+    </div>`;
+    return;
+  }
+
+  const wrap = document.createElement('div');
+  wrap.className = 'qv-list';
+
+  items.forEach(it=>{
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'qv-item';
+    btn.dataset.kind = it.kind;
+    btn.title = `Filter by ${kindLabels[it.kind]}: ${it.name}`;
+
+    const metaText = it.meta && it.meta.length ? it.meta.join(' · ') : '';
+
+    btn.innerHTML = `
+      <span class="qv-item-left">
+        <span class="qv-item-icon"><i class="fas ${kindIcons[it.kind]}"></i></span>
+        <span class="qv-item-label">${escapeHtml(it.name)}</span>
+      </span>
+      <span class="qv-item-count">${it.count}</span>
+    `;
+
+    btn.addEventListener('click',()=>{
+      /* Apply as filter & close modal */
+      if(it.kind==='job'){ selectedJobs.clear(); selectedJobs.add(it.name); }
+      else if(it.kind==='subject'){ selectedSubjects.clear(); selectedSubjects.add(it.name); }
+      else if(it.kind==='topic'){ selectedTopics.clear(); selectedTopics.add(it.name); }
+      else if(it.kind==='subtopic'){
+        /* Subtopic maps to displayTopic filter */
+        selectedTopics.clear(); selectedTopics.add(it.name);
+      }
+
+      refreshAllFilters();
+      applyFiltersAndRender();
+      saveFiltersToStorage();
+      closeQuickView();
+      showToast(`Filtered by ${kindLabels[it.kind]}: ${it.name}`);
+    });
+
+    wrap.appendChild(btn);
+  });
+
+  qvBody.innerHTML='';
+  qvBody.appendChild(wrap);
+}
+
+function closeQuickView(){
+  qvOverlay.classList.remove('open');
+  document.body.style.overflow='';
+}
+
+brandMarkBtn.addEventListener('click', openQuickView);
+qvCloseBtn.addEventListener('click', closeQuickView);
+qvOverlay.addEventListener('click',(e)=>{ if(e.target===qvOverlay) closeQuickView(); });
+
+qvTabs.addEventListener('click',(e)=>{
+  const tab = e.target.closest('.qv-tab');
+  if(!tab) return;
+  qvActiveTab = tab.dataset.tab;
+  Array.from(qvTabs.querySelectorAll('.qv-tab')).forEach(t=>t.classList.toggle('active', t===tab));
+  renderQvBody();
+});
+
+/* Escape closes any open modal */
+document.addEventListener('keydown',(e)=>{
+  if(e.key!=='Escape') return;
+  if(modalOverlay.classList.contains('open')) closeNotesModal();
+  else if(qvOverlay.classList.contains('open')) closeQuickView();
+});
+
 /* ============================================================
-   CARD RENDER — NEW LAYOUT
-   Row 1: #srno + LARGE subtopic + Job badge
-   Row 2: Progress bar (with %) + Date
-   Row 3: Topic (with count) · Subject (with count)
+   CARD RENDER — Subject → Job → Date stack
+   Row 1: #srno + LARGE subtopic
+   Row 2: Progress bar + %
+   Row 3: Topic (count) / Subject (count) / Job / Date
    Row 4: Actions
 ============================================================ */
 function renderCards(data){
@@ -1405,7 +1687,6 @@ function renderCards(data){
     return;
   }
 
-  const showJobBadge = selectedJobs.size === 0;
   const frag=document.createDocumentFragment();
 
   data.forEach(item=>{
@@ -1420,10 +1701,9 @@ function renderCards(data){
       });
     }
 
-    /* -------- ROW 1: srno + large subtopic + job badge -------- */
+    /* ROW 1: srno + large subtopic */
     const head=document.createElement('div');
     head.className='card-head';
-
     const headLeft=document.createElement('div');
     headLeft.className='card-head-left';
 
@@ -1443,29 +1723,15 @@ function renderCards(data){
     headLeft.appendChild(title);
 
     head.appendChild(headLeft);
-
-    /* job badge in top-right */
-    if(showJobBadge && item.job && item.job!=='—'){
-      const badges=document.createElement('div');
-      badges.className='card-badges';
-      const b=document.createElement('span');
-      b.className='badge badge-job';
-      b.textContent=item.job;
-      b.title='Job: '+item.job;
-      badges.appendChild(b);
-      head.appendChild(badges);
-    }
-
     card.appendChild(head);
 
-    /* -------- ROW 2: progress bar + date -------- */
+    /* ROW 2: progress bar + % */
     const covPct = getSubjectCoveragePctForScope(item.subject, selectedJobs);
     const covCls = covPct===100?'full':(covPct>=50?'mid':'');
     const pctCls = covPct===100?'full':(covPct<50?'low':'');
 
     const progRow=document.createElement('div');
     progRow.className='card-progress-row';
-
     const progWrap=document.createElement('div');
     progWrap.className='progress-wrap';
     progWrap.title = `Subject coverage${selectedJobs.size?' for selected job(s)':''}: ${covPct}%`;
@@ -1476,49 +1742,68 @@ function renderCards(data){
       <span class="progress-pct ${pctCls}">${covPct}%</span>
     `;
     progRow.appendChild(progWrap);
-
-    if(item.lastUpdate){
-      const d=document.createElement('span');
-      d.className='card-date';
-      d.innerHTML=`<i class="fas fa-clock"></i>${escapeHtml(item.lastUpdate)}`;
-      d.title='Last update';
-      progRow.appendChild(d);
-    }
-
     card.appendChild(progRow);
 
-    /* -------- ROW 3: topic · subject meta -------- */
+    /* ROW 3: Topic → Subject → Job → Date (stacked) */
     const meta=document.createElement('div');
     meta.className='card-meta';
 
     const mainCount = mainTopicCounts[item.mainTopic] || 1;
     const subjCount = getSubjectCountForScope(item.subject, selectedJobs);
 
-    const topicChip=document.createElement('span');
-    topicChip.className='meta-chip';
-    topicChip.title=`Topic: ${item.mainTopic}`;
-    topicChip.innerHTML=`
+    /* Topic line */
+    const topicLine=document.createElement('div');
+    topicLine.className='meta-line';
+    topicLine.title=`Topic: ${item.mainTopic}`;
+    topicLine.innerHTML=`
       <i class="fas fa-folder"></i>
       <span class="meta-label">Topic</span>
       <span class="meta-value">${escapeHtml(item.mainTopic)}</span>
       <span class="count-chip">${mainCount}</span>
     `;
-    meta.appendChild(topicChip);
+    meta.appendChild(topicLine);
 
-    const subjChip=document.createElement('span');
-    subjChip.className='meta-chip';
-    subjChip.title=`Subject: ${item.subject}`;
-    subjChip.innerHTML=`
+    /* Subject line */
+    const subjLine=document.createElement('div');
+    subjLine.className='meta-line';
+    subjLine.title=`Subject: ${item.subject}`;
+    subjLine.innerHTML=`
       <i class="fas fa-book"></i>
       <span class="meta-label">Subject</span>
       <span class="meta-value">${escapeHtml(item.subject)}</span>
       <span class="count-chip">${subjCount}</span>
     `;
-    meta.appendChild(subjChip);
+    meta.appendChild(subjLine);
+
+    /* Job line (below subject) */
+    if(item.job && item.job!=='—'){
+      const jobLine=document.createElement('div');
+      jobLine.className='meta-line';
+      jobLine.title=`Job: ${item.job}`;
+      jobLine.innerHTML=`
+        <i class="fas fa-briefcase"></i>
+        <span class="meta-label">Job</span>
+        <span class="meta-value">${escapeHtml(item.job)}</span>
+      `;
+      meta.appendChild(jobLine);
+    }
+
+    /* Date line (below job) */
+    if(item.lastUpdate){
+      const dateLine=document.createElement('div');
+      dateLine.className='meta-line';
+      dateLine.title=`Last update: ${item.lastUpdate}`;
+      dateLine.innerHTML=`
+        <i class="fas fa-clock"></i>
+        <span class="meta-label">Date</span>
+        <span class="date-value">${escapeHtml(item.lastUpdate)}</span>
+      `;
+      meta.appendChild(dateLine);
+    }
 
     card.appendChild(meta);
 
-    /* -------- ROW 4: actions -------- */
+    /* ROW 4: Actions */
     const foot=document.createElement('div');
     foot.className='card-foot';
 
@@ -1562,7 +1847,6 @@ function renderCards(data){
     }
 
     card.appendChild(foot);
-
     frag.appendChild(card);
   });
 
@@ -1570,7 +1854,7 @@ function renderCards(data){
   cardsContainer.appendChild(frag);
 }
 
-/* POPULATE FILTERS */
+/* ================= POPULATE FILTERS ================= */
 function populateFilters(data){
   const S=new Set(),T=new Set(),J=new Set();
   data.forEach(item=>{
@@ -1595,7 +1879,7 @@ function populateFilters(data){
   jobCountHint.textContent=jO.length;
 }
 
-/* SCROLL */
+/* ================= SCROLL ================= */
 function updateScrollButtons(){
   const y=window.scrollY||0;
   const maxY=(document.documentElement.scrollHeight||document.body.scrollHeight)-window.innerHeight;
@@ -1612,7 +1896,7 @@ fabScrollTop.addEventListener('click',()=>{ window.scrollTo({top:0,behavior:'smo
 fabScrollBottom.addEventListener('click',()=>{ const t=document.documentElement.scrollHeight||document.body.scrollHeight; window.scrollTo({top:t,behavior:'smooth'}); });
 function restoreScrollPosition(){ const y=getSavedScrollPosition(); if(y>0) requestAnimationFrame(()=>window.scrollTo(0,y)); }
 
-/* LOAD */
+/* ================= LOAD ================= */
 function setRefreshLoading(l){ isLoading=l; fabRefresh.classList.toggle('loading',l); }
 async function fetchFreshData(){
   const res=await fetch(CSV_URL+`&_=${Date.now()}`,{cache:'no-store'});
@@ -1661,7 +1945,7 @@ async function refreshFromNetwork(opts){
   } finally { if(opts.isManual) setRefreshLoading(false); }
 }
 
-/* SEARCH */
+/* ================= SEARCH ================= */
 function updateSearchClearButton(){ globalSearchClear.classList.toggle('visible',!!(globalSearchTerm&&globalSearchTerm.trim())); }
 globalSearchInput.addEventListener('input',()=>{
   if(globalSearchInput.value===globalSearchTerm) return;
@@ -1673,7 +1957,7 @@ globalSearchClear.addEventListener('click',()=>{
   updateSearchClearButton(); scheduleFastFilterRefresh(); globalSearchInput.focus();
 });
 
-/* INIT */
+/* ================= INIT ================= */
 (async function init(){
   loadFiltersFromStorage();
   cbCovered.classList.toggle('active',selectedStatuses.has('covered'));
